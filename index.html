@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunshine Coast Trail — the app</title>
+<meta name="description" content="An offline companion app for the Sunshine Coast Trail: your kilometre by the marker posts, water, huts, and bailouts — with no signal.">
+<style>
+  :root{
+    --bg:#F7F9F6; --surface:#FFFFFF; --sunk:#EEF2EC;
+    --text:#12180F; --dim:#4F5A4C; --faint:#7B857A;
+    --green:#2E7D3A; --greenSoft:#E4F1E4; --amber:#B7791F; --amberSoft:#FBF0DA;
+    --line:rgba(0,0,0,.10);
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,Inter,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);
+       line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
+  header{padding:46px 0 30px;text-align:center}
+  .blaze{width:58px;height:58px;color:var(--green)}
+  h1{font-size:32px;line-height:1.15;margin:16px 0 8px;letter-spacing:-.5px}
+  .tag{color:var(--dim);font-size:17px;margin:0 auto;max-width:30em}
+  nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:26px 0 0}
+  nav a{font-size:13.5px;font-weight:700;color:var(--green);text-decoration:none;
+        background:var(--greenSoft);padding:8px 15px;border-radius:20px}
+  nav a:hover{background:#d6e9d7}
+  main{padding:8px 0 70px}
+  section{margin:34px 0}
+  h2{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+     color:var(--faint);margin:0 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+  h3{font-size:18px;margin:26px 0 6px;letter-spacing:-.2px}
+  p{margin:0 0 14px;font-size:16px}
+  ul{margin:0 0 16px;padding-left:22px} li{margin:5px 0;font-size:16px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin:16px 0}
+  .note{background:var(--amberSoft);border-left:3px solid var(--amber);border-radius:10px;
+        padding:13px 16px;font-size:14.5px;color:#4a3a17;margin:16px 0}
+  .note b{color:#2f2409}
+  .price{display:inline-block;background:var(--greenSoft);color:var(--green);font-weight:800;
+         padding:4px 11px;border-radius:20px;font-size:14px}
+  code{background:var(--sunk);padding:2px 6px;border-radius:5px;font-size:14px}
+  a{color:var(--green)}
+  footer{border-top:1px solid var(--line);padding:26px 0 60px;color:var(--faint);font-size:13.5px;text-align:center}
+  footer a{color:var(--faint)}
+  .checkline{display:flex;gap:10px;align-items:flex-start;font-size:16px;margin:6px 0}
+  .checkline span:first-child{color:var(--green);font-weight:800;flex:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <svg class="blaze" viewBox="-0.5 -0.5 1 1" aria-label="Sunshine Coast Trail blaze" role="img">
+    <path fill="currentColor" fill-rule="evenodd" d="M 0.0000 -0.2700 C 0.0700 -0.2700 0.1400 -0.2700 0.1900 -0.2800 C 0.2300 -0.2900 0.2500 -0.3400 0.2900 -0.3800 C 0.3400 -0.4300 0.4100 -0.4100 0.4300 -0.3600 C 0.4600 -0.3100 0.4300 -0.2500 0.3800 -0.2200 C 0.3300 -0.1900 0.2900 -0.1700 0.2800 -0.1100 C 0.2700 -0.0700 0.2700 -0.0300 0.2700 0.0000 C 0.2700 0.0700 0.2700 0.1400 0.2800 0.1900 C 0.2900 0.2300 0.3400 0.2500 0.3800 0.2900 C 0.4300 0.3400 0.4100 0.4100 0.3600 0.4300 C 0.3100 0.4600 0.2500 0.4300 0.2200 0.3800 C 0.1900 0.3300 0.1700 0.2900 0.1100 0.2800 C 0.0700 0.2700 0.0300 0.2700 -0.0000 0.2700 C -0.0700 0.2700 -0.1400 0.2700 -0.1900 0.2800 C -0.2300 0.2900 -0.2500 0.3400 -0.2900 0.3800 C -0.3400 0.4300 -0.4100 0.4100 -0.4300 0.3600 C -0.4600 0.3100 -0.4300 0.2500 -0.3800 0.2200 C -0.3300 0.1900 -0.2900 0.1700 -0.2800 0.1100 C -0.2700 0.0700 -0.2700 0.0300 -0.2700 -0.0000 C -0.2700 -0.0700 -0.2700 -0.1400 -0.2800 -0.1900 C -0.2900 -0.2300 -0.3400 -0.2500 -0.3800 -0.2900 C -0.4300 -0.3400 -0.4100 -0.4100 -0.3600 -0.4300 C -0.3100 -0.4600 -0.2500 -0.4300 -0.2200 -0.3800 C -0.1900 -0.3300 -0.1700 -0.2900 -0.1100 -0.2800 C -0.0700 -0.2700 -0.0300 -0.2700 0.0000 -0.2700 Z M -0.0930 -0.1050 L 0.0930 -0.1050 A 0.0120 0.0120 0 0 1 0.1050 -0.0930 L 0.1050 0.0930 A 0.0120 0.0120 0 0 1 0.0930 0.1050 L -0.0930 0.1050 A 0.0120 0.0120 0 0 1 -0.1050 0.0930 L -0.1050 -0.0930 A 0.0120 0.0120 0 0 1 -0.0930 -0.1050 Z"/>
+  </svg>
+  <h1>There&rsquo;s an app for the Sunshine Coast Trail</h1>
+  <p class="tag">Your kilometre. Your water. Your hut. Offline.</p>
+  <nav>
+    <a href="./">The app</a>
+    <a href="./packing/">Packing list</a>
+    <a href="/sct-privacy/">Privacy</a>
+    <a href="https://sunshinecoasttrail.com/">Official trail site</a>
+  </nav>
+</header>
+<main>
+
+<section>
+  <h2>What it is</h2>
+  <p>An offline companion app for the Sunshine Coast Trail &mdash; Canada&rsquo;s longest hut-to-hut
+     hiking trail, built and maintained by the volunteers of
+     <a href="https://sunshinecoasttrail.com/">qPAWS</a>.</p>
+</section>
+
+<section>
+  <h2>What it does</h2>
+  <div class="card">
+    <h3>Works with no signal</h3>
+    <p>The whole trail map is inside the app. Airplane mode the entire hike &mdash; nothing to
+       download at a trailhead, and GPS that keeps working without a signal.</p>
+
+    <h3>Your kilometre, in the trail&rsquo;s own numbers</h3>
+    <p>The marker posts are the language everyone on the SCT speaks. The app speaks it too, and
+       tells you when it isn&rsquo;t sure rather than guessing.</p>
+
+    <h3>Water, honestly</h3>
+    <p>Permanent or seasonal, the last dated report, and when someone actually checked. The last
+       reliable water before a dry stretch is called out &mdash; in both directions.</p>
+
+    <h3>Huts</h3>
+    <p>Dry camp, bear cache, closures, and what&rsquo;s between you and that hut: distance, water on
+       the way, the climbs, and what time it gets dark.</p>
+
+    <h3>Ways off the trail</h3>
+    <p>88 mapped road crossings, each honest about what&rsquo;s actually known. Most say
+       &ldquo;vehicle access unknown&rdquo;, because that&rsquo;s the truth.</p>
+
+    <h3>The rest</h3>
+    <p>A trip planner that lays out your nights &mdash; whole trail or any section, however many days you have &middot; elevation profile you can scroll and tap &middot; trip recording with GPX export &middot; a trail feed
+       for water, rides, lost &amp; found and notices &middot; a calendar of who&rsquo;s at which hut &middot;
+       local shuttles, ferries and resupply, offline &middot; kilometres or miles &middot; a red night mode
+       that won&rsquo;t wreck your night vision at 3am.</p>
+  </div>
+</section>
+
+<section>
+  <h2>The route line</h2>
+  <div class="note">
+    <b>The route line is a work in progress, and I&rsquo;m improving it continuously.</b>
+    It&rsquo;s drawn from OpenStreetMap and comes out shorter than the real walking distance, so
+    the app follows the trail&rsquo;s own kilometre markers and treats every distance it works out
+    as a minimum, never a promise.
+  </div>
+  <p><b>This is where I need your input.</b> A clean GPS track from the trail &mdash; a Garmin
+     recording with distance and elevation &mdash; is exactly what makes that line better, and
+     every one I get goes straight into it:
+     <a href="mailto:leah@milecheckapp.com">leah@milecheckapp.com</a>.</p>
+</section>
+
+<section>
+  <h2>Price</h2>
+  <p><span class="price">One-time $9.99 cost</span></p>
+  <p><b>$1 from every paid download is intended for qPAWS</b>, the volunteers who built and
+     maintain this trail and its huts.</p>
+</section>
+
+<section>
+  <h2>Not out yet</h2>
+  <p>It&rsquo;s in testing on iPhone now, with Android to follow. At launch it will be available for a one-time $9.99 cost. If you&rsquo;re hiking the SCT and want
+     to help test, email me the address attached to your Apple account:
+     <a href="mailto:leah@milecheckapp.com">leah@milecheckapp.com</a></p>
+</section>
+
+<section>
+  <h2>Partnerships</h2>
+  <p>The app carries a Local Services directory that works offline &mdash; shuttles, water taxis,
+     ferries, resupply, gear. If you run one and want to be listed, get in touch:
+     <a href="mailto:leah@milecheckapp.com">leah@milecheckapp.com</a></p>
+  <p>Listings are clearly labelled, and they never appear inside safety information &mdash; not
+     beside water, not beside a bailout, not in a hut card.</p>
+</section>
+</main>
+</div>
+<footer>
+  <div class="wrap">
+    <p>An independent app for the Sunshine Coast Trail. Not affiliated with or endorsed by qPAWS.<br>
+    The trail is built and maintained by <a href="https://sunshinecoasttrail.com/">qPAWS</a> — please support them.</p>
+    <p>Questions: <a href="mailto:leah@milecheckapp.com">leah@milecheckapp.com</a></p>
+  </div>
+</footer>
+</body>
+</html>
