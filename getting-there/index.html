@@ -91,6 +91,16 @@
   .wtable td:nth-child(3),.wtable td:nth-child(4),.wtable th:nth-child(3),.wtable th:nth-child(4)
     {text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
   .wtable tr.wtotal td{border-bottom:none;border-top:2px solid var(--forest);font-weight:800;color:var(--forest)}
+  details.sched{margin:14px 0 0;border:1px solid var(--line);border-radius:8px;background:var(--sunk)}
+  details.sched summary{cursor:pointer;padding:10px 14px;font-size:13px;font-weight:800;
+    letter-spacing:.04em;text-transform:uppercase;color:var(--forest)}
+  details.sched[open] summary{border-bottom:1px solid var(--line)}
+  details.sched .schedbody{padding:12px 14px;font-size:14.5px}
+  details.sched h4{margin:10px 0 4px;font-size:13.5px}
+  details.sched h4:first-child{margin-top:0}
+  details.sched p{margin:0 0 6px}
+  .times{font-variant-numeric:tabular-nums;letter-spacing:.01em}
+  .schednote{font-size:12.5px;color:var(--faint);margin-top:8px}
   .checkline{display:flex;gap:11px;align-items:flex-start;font-size:16.5px;margin:9px 0}
   .checkline span:first-child{color:var(--blaze);font-weight:800;flex:none;font-size:13px;
         transform:translateY(4px)}
@@ -126,8 +136,8 @@
 
 <section>
   <div class="note">
-    Schedules below are links, not copies &mdash; ferry times change by season and this page
-    won&rsquo;t pretend to know today&rsquo;s. The official trail site keeps its own
+    The sailing times are right here on this page, with the dates each schedule is good
+    for &mdash; and a link to confirm the day you actually travel. The official trail site keeps its own
     <a href="https://sunshinecoasttrail.com/getting-here/" target="_blank" rel="noopener">getting-here page</a>
     and the <a href="https://sunshinecoasttrail.com/maps/" target="_blank" rel="noopener">official trail maps</a>.
   </div>
@@ -149,6 +159,30 @@
     </ul>
     <p><a href="https://www.bcferries.com/routes-fares/schedules" target="_blank" rel="noopener">BC Ferries schedules and reservations</a> &mdash; both legs are on one through-fare
        if you ask for it.</p>
+    <details class="sched">
+      <summary>Open the full schedule &middot; Jun 25 &ndash; Sep 7, 2026</summary>
+      <div class="schedbody">
+        <h4>Horseshoe Bay &rarr; Langdale &middot; Mon&ndash;Fri</h4>
+        <p class="times">7:30 am &middot; 8:50 am &middot; 9:50 am &middot; 11:10 am &middot; 12:10 pm &middot; 1:20 pm &middot; 2:25 pm &middot; 3:40 pm &middot; 4:40 pm &middot; 6:05 pm &middot; 7:05 pm &middot; 9:25 pm &middot; 11:30 pm</p>
+        <p>Saturday drops the 6:05 pm; Sunday drops the 8:50 am.</p>
+        <h4>Langdale &rarr; Horseshoe Bay &middot; Mon&ndash;Fri</h4>
+        <p class="times">6:20 am &middot; 7:40 am &middot; 8:40 am &middot; 10:00 am &middot; 11:00 am &middot; 12:15 pm &middot; 1:15 pm &middot; 2:35 pm &middot; 3:35 pm &middot; 4:50 pm &middot; 5:55 pm &middot; 8:15 pm &middot; 10:30 pm</p>
+        <p>Saturday drops the 4:50 pm; Sunday drops the 7:40 am and adds a 7:10 pm.</p>
+        <p class="schednote">40 minutes on the water. From BC Ferries&rsquo; posted summer schedule, checked Aug 20, 2026 &mdash; confirm on
+        <a href="https://www.bcferries.com/current-conditions" target="_blank" rel="noopener">current conditions</a>.</p>
+      </div>
+    </details>
+    <details class="sched">
+      <summary>Open the full schedule &middot; May 14 &ndash; Oct 12, 2026</summary>
+      <div class="schedbody">
+        <h4>Earls Cove &rarr; Saltery Bay &middot; every day</h4>
+        <p class="times">6:30 am &middot; 8:20 am &middot; 10:35 am &middot; 12:55 pm &middot; 3:40 pm &middot; 6:00 pm &middot; 8:05 pm &middot; 10:00 pm</p>
+        <h4>Saltery Bay &rarr; Earls Cove &middot; every day</h4>
+        <p class="times">5:35 am &middot; 7:25 am &middot; 9:25 am &middot; 11:45 am &middot; 2:30 pm &middot; 4:55 pm &middot; 7:05 pm &middot; 9:00 pm</p>
+        <p class="schednote">50 minutes, non-stop, same times all week. From BC Ferries&rsquo; posted seasonal schedule, checked Aug 20, 2026 &mdash; always confirm the day-of sailing on
+        <a href="https://www.bcferries.com/current-conditions" target="_blank" rel="noopener">current conditions</a>.</p>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -156,8 +190,18 @@
   <h2>From Vancouver Island</h2>
   <div class="card">
     <p>One ferry: <b>Comox (Little River) &rarr; Powell River (Westview)</b>, about 90 minutes,
-       a few sailings a day. Same
+       four sailings a day. Same
        <a href="https://www.bcferries.com/routes-fares/schedules" target="_blank" rel="noopener">BC Ferries schedule page</a>.</p>
+    <details class="sched">
+      <summary>Open the full schedule &middot; current season</summary>
+      <div class="schedbody">
+        <h4>Comox (Little River) &rarr; Powell River (Westview) &middot; every day</h4>
+        <p class="times">6:00 am &middot; 9:55 am &middot; 3:15 pm &middot; 7:10 pm</p>
+        <h4>Powell River (Westview) &rarr; Comox (Little River) &middot; every day</h4>
+        <p class="times">7:55 am &middot; 12:00 pm &middot; 5:15 pm &middot; 8:45 pm</p>
+        <p class="schednote">About 85 minutes. Four a day each way &mdash; miss the evening boat and you sleep where you stand. From BC Ferries&rsquo; posted schedule, checked Aug 20, 2026.</p>
+      </div>
+    </details>
   </div>
 </section>
 
