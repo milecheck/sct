@@ -44,9 +44,29 @@
   .wrap{max-width:680px;margin:0 auto;padding:0 22px}
 
   /* Masthead: a full-bleed forest band with faint contour lines. */
-  header{background:var(--forest);color:var(--cream);padding:52px 0 40px;
-         background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='280' viewBox='0 0 560 280'%3E%3Cg fill='none' stroke='%23F7F3E6' stroke-opacity='.07' stroke-width='1.4'%3E%3Cpath d='M-20 60c90-30 170 40 260 16s160-70 340-30'/%3E%3Cpath d='M-20 110c110-40 200 30 300 8s150-58 300-24'/%3E%3Cpath d='M-20 170c80-18 190 34 290 12s170-64 310-28'/%3E%3Cpath d='M-20 228c120-40 210 26 320 4s130-44 260-16'/%3E%3C/g%3E%3C/svg%3E");
-         background-size:560px 280px}
+  /* Leah's own photo from the trail, summer 2026. The scrim is a three-stop
+     gradient rather than a flat wash: light over the view so the lake and
+     the mountains actually read, heavy at the bottom where the type sits. */
+  header{background-color:var(--forest);color:var(--cream);
+         padding:64px 0 44px;
+         background-image:
+           linear-gradient(180deg,
+             rgba(14,34,23,.18) 0%,
+             rgba(14,34,23,.40) 45%,
+             rgba(14,34,23,.90) 100%),
+           url("/banner.jpg");
+         background-size:cover;
+         background-position:center 46%;
+         background-repeat:no-repeat}
+  @media (max-width:700px){
+    header{background-image:
+             linear-gradient(180deg,
+               rgba(14,34,23,.22) 0%,
+               rgba(14,34,23,.48) 45%,
+               rgba(14,34,23,.92) 100%),
+             url("/banner-small.jpg")}
+  }
+  header h1,header .tag{text-shadow:0 1px 14px rgba(8,18,12,.55)}
   header .wrap{text-align:left}
   .brandrow{display:flex;align-items:center;gap:14px}
   .blaze{width:46px;height:46px;color:var(--blaze);flex:none}
