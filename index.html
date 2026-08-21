@@ -83,6 +83,11 @@
   section{margin:38px 0}
 
   /* Section headers as routed signboards. */
+  .opener{font-size:1.05rem}
+  ul.feat{padding-left:1.15rem;display:flex;flex-direction:column;gap:.6rem;margin:0}
+  ul.feat>li{font-size:15.5px;line-height:1.55}
+  ul.feat ul{padding-left:1.1rem;margin:.35rem 0 0;display:flex;flex-direction:column;gap:.2rem}
+  ul.feat ul li{font-size:14.5px;color:var(--dim)}
   h2{display:inline-block;font-family:var(--font);font-size:12.5px;font-weight:800;
      letter-spacing:.15em;text-transform:uppercase;color:var(--cream);
      background:var(--forest);padding:7px 14px 6px;border-radius:6px;margin:0 0 16px;
@@ -137,48 +142,56 @@
 <div class="wrap">
 
 <section>
-  <h2>What it is</h2>
-  <p>An offline companion app for the Sunshine Coast Trail &mdash; Canada&rsquo;s longest hut-to-hut
-     hiking trail, on British Columbia&rsquo;s upper Sunshine Coast near Powell River, built and maintained by the volunteers of
+  <p class="opener">An offline companion for the Sunshine Coast Trail &mdash; Canada&rsquo;s longest
+     hut-to-hut hiking trail, on British Columbia&rsquo;s upper Sunshine Coast near Powell River,
+     built and maintained by the volunteers of
      <a href="https://sunshinecoasttrail.com/" target="_blank" rel="noopener">qPAWS</a>.</p>
 </section>
 
 <section>
-  <h2>What it does</h2>
-  <div class="card">
-    <h3>Works with no signal</h3>
-    <p>The whole trail map is inside the app. Airplane mode the entire hike &mdash; nothing to
-       download at a trailhead, and GPS that keeps working without a signal.</p>
-
-    <h3>Counts in the trail&rsquo;s own kilometres</h3>
-    <p>Every distance in the app uses the official kilometre posts&rsquo; numbering, pinned to
-       the real posts at the huts. Between them the drawn line is still imperfect &mdash; it
-       reads short of the true walking &mdash; so the app treats every distance as a minimum,
-       and shows unknown as unknown rather than guessing. Real GPS tracks from hikers are how
-       the line gets better; there&rsquo;s more on that below.</p>
-
-    <h3>Water</h3>
-    <p>Each source is marked permanent or seasonal, with the date it was last checked.
-       Before a dry stretch, the app flags the last reliable water &mdash; in both
-       directions.</p>
-
-    <h3>Huts</h3>
-    <p>Each hut shows whether it has water or is a dry camp, whether there&rsquo;s a bear
-       cache, and any closures. Pick one as tonight&rsquo;s destination and you get the
-       distance, water on the way, the climbing, and what time it gets dark.</p>
-
-    <h3>Ways off the trail</h3>
-    <p>15 crossings are marked as bailouts &mdash; the realistic ways off the trail. The
-       map also shows every other road and logging-track crossing, but most are old
-       logging tracks, and the app doesn&rsquo;t claim a vehicle can reach one unless
-       somebody has verified it.</p>
-
-    <h3>The rest</h3>
-    <p>A trip planner that lays out your nights &mdash; whole trail or any section, however many days you have &middot; elevation profile you can scroll and tap &middot; trip recording with GPX export &middot; a trail feed
-       for water, rides, lost &amp; found and notices &middot; a calendar of who&rsquo;s at which hut &middot;
-       local shuttles, ferries and resupply, offline &middot; kilometres or miles &middot; a red night mode
-       that won&rsquo;t wreck your night vision at 3am.</p>
-  </div>
+  <h2>Features</h2>
+  <ul class="feat">
+    <li><b>The map works with no signal.</b> The whole trail corridor is built into the app
+        &mdash; airplane mode the entire hike, nothing to download at a trailhead.
+      <ul>
+        <li>Your kilometre in the trail&rsquo;s own marker-post numbers</li>
+        <li>Numbered km markers along the line &mdash; every 25 zoomed out, every one up close</li>
+        <li>The trail coloured by elevation, green low to red high</li>
+        <li>Tap anything for its details: huts, water, road crossings, wayfinding traps</li>
+        <li>Pub, town and shop names from the basemap</li>
+        <li>Choose what&rsquo;s on the map: huts, water, road crossings, km markers, height colour</li>
+      </ul>
+    </li>
+    <li><b>Water.</b> Each source shows whether it runs year round, is seasonal, or is unchecked,
+        the last dated report, and when anyone actually verified it. The last permanent water
+        before a dry stretch is called out, in both directions.</li>
+    <li><b>Huts.</b> Dry camp, bear cache, reservation and closure notes, plus what&rsquo;s between
+        you and that hut: distance, water on the way, major climbs, and what time it gets dark.</li>
+    <li><b>Elevation profile</b> for the whole trail &mdash; scroll it end to end, tap any point
+        for the kilometre and height, with summits and huts named.</li>
+    <li><b>Road crossings and bailouts.</b></li>
+    <li><b>Plan by day.</b> Pick how many days you have and it splits the trail into nights that
+        end somewhere you can sleep &mdash; balanced by climb as well as distance, so a 18&nbsp;km
+        day with 1,400&nbsp;m of ascent isn&rsquo;t treated as the same size as a flat one.</li>
+    <li><b>Plan without GPS.</b> Pick any hut or type a kilometre and the whole app works from
+        there &mdash; useful at the kitchen table before you go.</li>
+    <li><b>Ferries and the bus, offline.</b> All three BC Ferries legs and the Powell River bus,
+        with the dates each schedule is good for.</li>
+    <li><b>Both directions</b>, kilometres or miles, and four screen modes including a red night
+        mode.</li>
+    <li><b>Trip recording</b> in the background through screen lock, exportable as GPX. Stays on
+        your phone unless you send it.</li>
+    <li><b>Trail feed</b> &mdash; notices, water, rides, lost &amp; found, trail conditions,
+        wayfinding, wildlife, huts, social.</li>
+    <li><b>Calendar.</b> Which hut you&rsquo;re at each night, who else says they&rsquo;ll be
+        there, that day&rsquo;s posts, the forecast and the day&rsquo;s ferries.</li>
+    <li><b>Family sharing</b> &mdash; one private link to the updates you choose to publish.
+        Not live tracking.</li>
+    <li><b>Local services offline</b> &mdash; shuttles, water taxi, ferries, resupply, gear, and
+        emergency numbers.</li>
+    <li><b>No account. No email. No phone number.</b> First name and where you&rsquo;re
+        travelling from are optional.</li>
+  </ul>
 </section>
 
 <section>
