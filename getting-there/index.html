@@ -3,166 +3,62 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Getting to the Sunshine Coast Trail — Ferries, Flights, and the Water Taxi</title>
-<meta name="description" content="How to reach the Sunshine Coast Trail: the two-ferry drive from Vancouver, the ferry from Vancouver Island, the flight to Powell River, and the water taxi to Sarah Point. What can’t fly with you and where to buy it when you land.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Getting to the Sunshine Coast Trail — Ferry, Air &amp; Water Taxi</title>
+<meta name="description" content="How to reach the SCT from Vancouver or Vancouver Island, then connect to Sarah Point or Saltery Bay by water taxi, road or transit.">
 <link rel="canonical" href="https://sunshinecoasttrail.app/getting-there/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#0E2217">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Sunshine Coast Trail app">
+<meta property="og:site_name" content="Sunshine Coast Trail Planner">
 <meta property="og:title" content="Getting to the Sunshine Coast Trail">
-<meta property="og:description" content="Two ferries from Vancouver, one from Vancouver Island, a 35-minute flight, or the water taxi to Sarah Point — every way in, with links to the real schedules.">
+<meta property="og:description" content="How to reach the SCT from Vancouver or Vancouver Island, then connect to Sarah Point or Saltery Bay by water taxi, road or transit.">
 <meta property="og:url" content="https://sunshinecoasttrail.app/getting-there/">
 <meta property="og:image" content="https://sunshinecoasttrail.app/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A forested ridge on the Sunshine Coast Trail">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Getting to the Sunshine Coast Trail">
-<meta name="twitter:description" content="Two ferries from Vancouver, one from Vancouver Island, a 35-minute flight, or the water taxi to Sarah Point — every way in, with links to the real schedules.">
+<meta name="twitter:description" content="How to reach the SCT from Vancouver or Vancouver Island, then connect to Sarah Point or Saltery Bay by water taxi, road or transit.">
 <meta name="twitter:image" content="https://sunshinecoasttrail.app/og.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&display=swap" rel="stylesheet">
-<style>
-  /* The trail's own visual world: orange diamond blazes on wood, deep PNW
-     forest, cream paper. One display face (Fraunces) with real character;
-     body stays the system stack for speed and honesty. */
-  :root{
-    --paper:#F5F1E6; --panel:#FBF8EF; --sunk:#ECE6D6;
-    --ink:#26221A; --dim:#5B5546; --faint:#8A8371;
-    --forest:#1E3B2A; --forest-deep:#152B1F; --pine:#2E5B3E;
-    --blaze:#C2540A; --blaze-soft:#F4E3D2;
-    --cream:#F7F3E6; --cream-dim:#CFDACA;
-    --line:rgba(43,34,20,.16);
-    --display:"Fraunces",Georgia,serif;
-    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);
-       line-height:1.62;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:680px;margin:0 auto;padding:0 22px}
-
-  /* Masthead: a full-bleed forest band with faint contour lines. */
-  /* Leah's own photo from the trail, summer 2026. The scrim is a three-stop
-     gradient rather than a flat wash: light over the view so the lake and
-     the mountains actually read, heavy at the bottom where the type sits. */
-  header{background-color:var(--forest);color:var(--cream);
-         padding:64px 0 44px;
-         background-image:
-           linear-gradient(180deg,
-             rgba(14,34,23,.18) 0%,
-             rgba(14,34,23,.40) 45%,
-             rgba(14,34,23,.90) 100%),
-           url("/banner.jpg");
-         background-size:cover;
-         background-position:center 46%;
-         background-repeat:no-repeat}
-  @media (max-width:700px){
-    header{background-image:
-             linear-gradient(180deg,
-               rgba(14,34,23,.22) 0%,
-               rgba(14,34,23,.48) 45%,
-               rgba(14,34,23,.92) 100%),
-             url("/banner-small.jpg")}
-  }
-  header h1,header .tag{text-shadow:0 1px 14px rgba(8,18,12,.55)}
-  header .wrap{text-align:left}
-  .brandrow{display:flex;align-items:center;gap:14px}
-  .blaze{width:46px;height:46px;color:var(--blaze);flex:none}
-  h1{font-family:var(--display);font-weight:900;font-size:clamp(30px,6vw,44px);
-     line-height:1.06;margin:18px 0 10px;letter-spacing:-.01em;color:var(--cream)}
-  .tag{color:var(--cream-dim);font-size:17.5px;margin:0;max-width:32em}
-  nav{display:flex;gap:22px;flex-wrap:wrap;margin:28px 0 0}
-  nav a{font-size:13.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-        color:var(--cream);text-decoration:none;border-bottom:2px solid rgba(247,243,230,.25);
-        padding-bottom:3px}
-  nav a:hover{border-bottom-color:var(--blaze);color:#fff}
-
-  main{padding:14px 0 70px}
-  section{margin:38px 0}
-
-  /* Section headers as routed signboards. */
-  h2{display:inline-block;font-family:var(--font);font-size:12.5px;font-weight:800;
-     letter-spacing:.15em;text-transform:uppercase;color:var(--cream);
-     background:var(--forest);padding:7px 14px 6px;border-radius:6px;margin:0 0 16px;
-     box-shadow:inset 0 0 0 1.5px rgba(247,243,230,.22)}
-  h3{font-family:var(--display);font-weight:700;font-size:21px;color:var(--forest);
-     margin:30px 0 8px;letter-spacing:0}
-  p{margin:0 0 14px;font-size:16.5px}
-  ul{margin:0 0 16px;padding-left:24px}
-  li{margin:7px 0;font-size:16.5px}
-  li::marker{color:var(--blaze)}
-
-  a{color:var(--pine);text-decoration-color:rgba(46,91,62,.4);text-underline-offset:3px}
-  a:hover{color:var(--blaze);text-decoration-color:var(--blaze)}
-
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;
-        padding:20px 22px;margin:16px 0}
-  .note{background:var(--blaze-soft);border-left:3px solid var(--blaze);border-radius:0 10px 10px 0;
-        padding:13px 16px;font-size:15px;color:#59401f;margin:16px 0}
-  .note b{color:var(--blaze)}
-  code{background:var(--sunk);padding:2px 6px;border-radius:5px;font-size:14px}
-  .wtable-wrap{overflow-x:auto;margin:16px 0 0}
-  .wtable{border-collapse:collapse;width:100%;min-width:480px;font-size:15px}
-  .wtable th{font-size:11.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
-             color:var(--faint);text-align:left;padding:0 14px 8px 0;border-bottom:2px solid var(--forest)}
-  .wtable td{padding:8px 14px 8px 0;border-bottom:1px solid var(--line);vertical-align:top}
-  .wtable td:nth-child(3),.wtable td:nth-child(4),.wtable th:nth-child(3),.wtable th:nth-child(4)
-    {text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-  .wtable tr.wtotal td{border-bottom:none;border-top:2px solid var(--forest);font-weight:800;color:var(--forest)}
-  details.sched{margin:14px 0 0;border:1px solid var(--line);border-radius:8px;background:var(--sunk)}
-  details.sched summary{cursor:pointer;padding:10px 14px;font-size:13px;font-weight:800;
-    letter-spacing:.04em;text-transform:uppercase;color:var(--forest)}
-  details.sched[open] summary{border-bottom:1px solid var(--line)}
-  details.sched .schedbody{padding:12px 14px;font-size:14.5px}
-  details.sched h4{margin:10px 0 4px;font-size:13.5px}
-  details.sched h4:first-child{margin-top:0}
-  details.sched p{margin:0 0 6px}
-  .times{font-variant-numeric:tabular-nums;letter-spacing:.01em}
-  .schednote{font-size:12.5px;color:var(--faint);margin-top:8px}
-  .checkline{display:flex;gap:11px;align-items:flex-start;font-size:16.5px;margin:9px 0}
-  .checkline span:first-child{color:var(--blaze);font-weight:800;flex:none;font-size:13px;
-        transform:translateY(4px)}
-
-  footer{background:var(--forest-deep);color:var(--cream-dim);padding:30px 0 56px;
-         font-size:14px;margin-top:20px}
-  footer a{color:var(--cream)}
-  footer .wrap{text-align:left}
-</style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Sunshine Coast Trail Packing List", "description": "What to pack for the Sunshine Coast Trail, from a 2026 thru-hike: pack size and weight, sleep system for the huts, water capacity for the dry camps, bear spray rules if you fly in, freeze-dried food prices in Powell River, and what to leave behind. Dog section included.", "author": {"@type": "Person", "name": "Leah Gerber"}, "url": "https://sunshinecoasttrail.app/getting-there/", "about": {"@type": "Thing", "name": "Sunshine Coast Trail"}}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sunshinecoasttrail.app/"}, {"@type": "ListItem", "position": 2, "name": "Packing list", "item": "https://sunshinecoasttrail.app/getting-there/"}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght;600;700;800&amp;family=IBM+Plex+Sans:wght;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20260825b">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Getting to the Sunshine Coast Trail","description":"Ferries, flights, local transit and water taxis serving the Sunshine Coast Trail.","author":{"@type":"Person","name":"Leah Gerber"},"datePublished":"2026-08-25","dateModified":"2026-08-25","image":"https://sunshinecoasttrail.app/og.png","url":"https://sunshinecoasttrail.app/getting-there/","about":{"@type":"Thing","name":"Sunshine Coast Trail"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sunshinecoasttrail.app/"},{"@type":"ListItem","position":2,"name":"Getting there","item":"https://sunshinecoasttrail.app/getting-there/"}]}</script>
 </head>
-<body>
+<body class="legacy-page" style="--page-image:url('/assets/photos/ridge.webp')">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <aside class="km-rail" aria-label="Page position shown as a trail kilometre"><div class="km-rail__ends" aria-hidden="true"><span>0</span><span>178</span></div><output class="km-rail__now" data-km-now>KM 000</output></aside>
 <header>
 <div class="wrap">
-  <svg class="blaze" viewBox="-0.5 -0.5 1 1" aria-label="Sunshine Coast Trail blaze" role="img">
-    <path fill="currentColor" fill-rule="evenodd" d="M 0.0000 -0.2700 C 0.0700 -0.2700 0.1400 -0.2700 0.1900 -0.2800 C 0.2300 -0.2900 0.2500 -0.3400 0.2900 -0.3800 C 0.3400 -0.4300 0.4100 -0.4100 0.4300 -0.3600 C 0.4600 -0.3100 0.4300 -0.2500 0.3800 -0.2200 C 0.3300 -0.1900 0.2900 -0.1700 0.2800 -0.1100 C 0.2700 -0.0700 0.2700 -0.0300 0.2700 0.0000 C 0.2700 0.0700 0.2700 0.1400 0.2800 0.1900 C 0.2900 0.2300 0.3400 0.2500 0.3800 0.2900 C 0.4300 0.3400 0.4100 0.4100 0.3600 0.4300 C 0.3100 0.4600 0.2500 0.4300 0.2200 0.3800 C 0.1900 0.3300 0.1700 0.2900 0.1100 0.2800 C 0.0700 0.2700 0.0300 0.2700 -0.0000 0.2700 C -0.0700 0.2700 -0.1400 0.2700 -0.1900 0.2800 C -0.2300 0.2900 -0.2500 0.3400 -0.2900 0.3800 C -0.3400 0.4300 -0.4100 0.4100 -0.4300 0.3600 C -0.4600 0.3100 -0.4300 0.2500 -0.3800 0.2200 C -0.3300 0.1900 -0.2900 0.1700 -0.2800 0.1100 C -0.2700 0.0700 -0.2700 0.0300 -0.2700 -0.0000 C -0.2700 -0.0700 -0.2700 -0.1400 -0.2800 -0.1900 C -0.2900 -0.2300 -0.3400 -0.2500 -0.3800 -0.2900 C -0.4300 -0.3400 -0.4100 -0.4100 -0.3600 -0.4300 C -0.3100 -0.4600 -0.2500 -0.4300 -0.2200 -0.3800 C -0.1900 -0.3300 -0.1700 -0.2900 -0.1100 -0.2800 C -0.0700 -0.2700 -0.0300 -0.2700 0.0000 -0.2700 Z M -0.0930 -0.1050 L 0.0930 -0.1050 A 0.0120 0.0120 0 0 1 0.1050 -0.0930 L 0.1050 0.0930 A 0.0120 0.0120 0 0 1 0.0930 0.1050 L -0.0930 0.1050 A 0.0120 0.0120 0 0 1 -0.1050 0.0930 L -0.1050 -0.0930 A 0.0120 0.0120 0 0 1 -0.0930 -0.1050 Z"/>
-  </svg>
   <h1>Getting to the trail</h1>
-  <p class="tag">Powell River has no road in from the rest of the world. Here&rsquo;s every way to arrive.</p>
-  <nav>
-    <a href="../">The app</a>
-    <a href="./">Packing list</a>
-    <a href="./">Getting there</a>
-    <a href="../tips/">Tips</a>
+  <p class="tag">Reach Powell River by ferry or air. Reach Sarah Point by water taxi or arranged rough-road access.</p>
+  <nav aria-label="Main navigation">
+    <a href="../">SCT Planner app</a>
+    <a href="../packing/">Packing list</a>
+    <a href="./" aria-current="page">Getting there</a>
+    <a href="../tips/">Trail notes</a>
     <a href="../resources/">Local services</a>
-    <a href="https://milecheckapp.com/sct-privacy/" target="_blank" rel="noopener">Privacy</a>
+    <a href="../support/">Support</a>
+    <a href="../privacy/">Privacy</a>
     <a href="https://sunshinecoasttrail.com/" target="_blank" rel="noopener">Official trail site</a>
   </nav>
 </div>
 </header>
-<main>
+<main id="main">
 <div class="wrap">
 
 <section>
   <div class="note">
-    First, where this is: the trail runs to Powell River, British Columbia, Canada &mdash;
-    up the coast from Vancouver, no road in. The sailing times are right here on this page,
-    with the dates each schedule is good for &mdash; and a link to confirm the day you
-    actually travel. The official trail site keeps its own
+    The trail is near qathet / Powell River, British Columbia. Driving from Vancouver requires ferry crossings. Confirm each schedule with the operator. The official trail site keeps its own
     <a href="https://sunshinecoasttrail.com/getting-here/" target="_blank" rel="noopener">getting-here page</a>
-    and the <a href="https://sunshinecoasttrail.com/maps/" target="_blank" rel="noopener">official trail maps</a>.
+    and the <a href="https://sunshinecoasttrail.com/plan-your-hike/maps/" target="_blank" rel="noopener">official trail maps</a>.
   </div>
 </section>
 
@@ -172,42 +68,17 @@
     <p>Two ferries and two drives, about 5&ndash;6 hours all in:</p>
     <ul>
       <li><b>Horseshoe Bay &rarr; Langdale</b> &mdash; Horseshoe Bay is in West Vancouver;
-          Langdale is the bottom of the Sunshine Coast. 40 minutes on the water, and the leg
-          worth reserving on summer weekends</li>
+          Langdale is the bottom of the Sunshine Coast. The scheduled crossing is about 40 minutes.
+          Reservations are available; check summer availability.</li>
       <li>Drive Highway 101 up the lower Sunshine Coast to Earls Cove, about 80 minutes</li>
       <li><b>Earls Cove &rarr; Saltery Bay</b> &mdash; the second crossing, over Jervis Inlet
-          to the Powell River side. 50 minutes. No reservations; it&rsquo;s first come, and
-          it waits for no one</li>
+          to the Powell River side. The scheduled crossing is about 50 minutes. Reservations are
+          unavailable; vehicles board first-come, first-served.</li>
       <li>Saltery Bay to Powell River is a 30-minute drive &mdash; and the southern trailhead
           is right at the Saltery Bay side, so a finishing hiker just walks off the trail and
           onto the boat</li>
     </ul>
-    <p><a href="https://www.bcferries.com/routes-fares/schedules" target="_blank" rel="noopener">BC Ferries schedules and reservations</a> &mdash; both legs are on one through-fare
-       if you ask for it.</p>
-    <details class="sched">
-      <summary>Open the full schedule &middot; Jun 25 &ndash; Sep 7, 2026</summary>
-      <div class="schedbody">
-        <h4>Horseshoe Bay &rarr; Langdale &middot; Mon&ndash;Fri</h4>
-        <p class="times">7:30 am &middot; 8:50 am &middot; 9:50 am &middot; 11:10 am &middot; 12:10 pm &middot; 1:20 pm &middot; 2:25 pm &middot; 3:40 pm &middot; 4:40 pm &middot; 6:05 pm &middot; 7:05 pm &middot; 9:25 pm &middot; 11:30 pm</p>
-        <p>Saturday drops the 6:05 pm; Sunday drops the 8:50 am.</p>
-        <h4>Langdale &rarr; Horseshoe Bay &middot; Mon&ndash;Fri</h4>
-        <p class="times">6:20 am &middot; 7:40 am &middot; 8:40 am &middot; 10:00 am &middot; 11:00 am &middot; 12:15 pm &middot; 1:15 pm &middot; 2:35 pm &middot; 3:35 pm &middot; 4:50 pm &middot; 5:55 pm &middot; 8:15 pm &middot; 10:30 pm</p>
-        <p>Saturday drops the 4:50 pm; Sunday drops the 7:40 am and adds a 7:10 pm.</p>
-        <p class="schednote">40 minutes on the water. From BC Ferries&rsquo; posted summer schedule, checked Aug 20, 2026 &mdash; confirm on
-        <a href="https://www.bcferries.com/current-conditions" target="_blank" rel="noopener">current conditions</a>.</p>
-      </div>
-    </details>
-    <details class="sched">
-      <summary>Open the full schedule &middot; May 14 &ndash; Oct 12, 2026</summary>
-      <div class="schedbody">
-        <h4>Earls Cove &rarr; Saltery Bay &middot; every day</h4>
-        <p class="times">6:30 am &middot; 8:20 am &middot; 10:35 am &middot; 12:55 pm &middot; 3:40 pm &middot; 6:00 pm &middot; 8:05 pm &middot; 10:00 pm</p>
-        <h4>Saltery Bay &rarr; Earls Cove &middot; every day</h4>
-        <p class="times">5:35 am &middot; 7:25 am &middot; 9:25 am &middot; 11:45 am &middot; 2:30 pm &middot; 4:55 pm &middot; 7:05 pm &middot; 9:00 pm</p>
-        <p class="schednote">50 minutes, non-stop, same times all week. From BC Ferries&rsquo; posted seasonal schedule, checked Aug 20, 2026 &mdash; always confirm the day-of sailing on
-        <a href="https://www.bcferries.com/current-conditions" target="_blank" rel="noopener">current conditions</a>.</p>
-      </div>
-    </details>
+    <p><a href="https://www.bcferries.com/routes-fares/schedules" target="_blank" rel="noopener">Check the BC Ferries schedule</a> and reserve the Horseshoe Bay&ndash;Langdale leg when available. Check <a href="https://www.bcferries.com/current-conditions" target="_blank" rel="noopener">current conditions</a> on the day you travel.</p>
   </div>
 </section>
 
@@ -215,19 +86,9 @@
   <h2>From Vancouver Island</h2>
   <div class="card">
     <p>One ferry: <b>Comox (Little River) &rarr; Powell River (Westview)</b> &mdash; Comox is
-       midway up Vancouver Island&rsquo;s east coast. About 85 minutes,
-       four sailings a day. Same
+       midway up Vancouver Island&rsquo;s east coast. The crossing is about 85 minutes. Use the
        <a href="https://www.bcferries.com/routes-fares/schedules" target="_blank" rel="noopener">BC Ferries schedule page</a>.</p>
-    <details class="sched">
-      <summary>Open the full schedule &middot; current season</summary>
-      <div class="schedbody">
-        <h4>Comox (Little River) &rarr; Powell River (Westview) &middot; every day</h4>
-        <p class="times">6:00 am &middot; 9:55 am &middot; 3:15 pm &middot; 7:10 pm</p>
-        <h4>Powell River (Westview) &rarr; Comox (Little River) &middot; every day</h4>
-        <p class="times">7:55 am &middot; 12:00 pm &middot; 5:15 pm &middot; 8:45 pm</p>
-        <p class="schednote">About 85 minutes. Four a day each way &mdash; miss the evening boat and you sleep where you stand. From BC Ferries&rsquo; posted schedule, checked Aug 20, 2026.</p>
-      </div>
-    </details>
+    <p>Check the <a href="https://www.bcferries.com/routes-fares/schedules" target="_blank" rel="noopener">current schedule</a> before choosing a connection.</p>
   </div>
 </section>
 
@@ -235,55 +96,41 @@
   <h2>Flying in</h2>
   <div class="card">
     <p><a href="https://www.pacificcoastal.com/" target="_blank" rel="noopener">Pacific Coastal Airlines</a>
-       flies Vancouver (YVR South Terminal) &rarr; Powell River in about 35 minutes, several
-       times a day.</p>
-    <p><b>What can&rsquo;t fly with you:</b> bear spray and butane canisters. Buy both when you
-       land &mdash; Powell River Outdoors is next to the Westview ferry terminal and stocks
-       both, plus freeze-dried meals ($15&ndash;23 each there, so order ahead in bulk if
-       you&rsquo;re counting dollars).</p>
+       flies Vancouver (YVR South Terminal) &rarr; Powell River. Check the current timetable before connecting onward.</p>
+    <p>Bear spray and fuel canisters cannot travel on a commercial flight, including checked baggage. Arrange to buy them after landing and confirm stock before relying on one store.</p>
   </div>
 </section>
 
 <section>
   <h2>Reaching the northern trailhead</h2>
   <div class="card">
-    <p>The trail starts at <b>Sarah Point</b>, and the classic way in is by water:
-       <a href="https://lundwatertaxi.com/" target="_blank" rel="noopener">the Lund water taxi</a>
-       runs from Lund harbour, about 30 minutes north of Powell River by road. Their
+    <p>The trail starts at <b>Sarah Point</b>. <a href="https://lundwatertaxi.com/" target="_blank" rel="noopener">Lund Water Taxi</a>
+       runs from Lund Harbour, about 30 minutes north of Powell River by road. Its
        scheduled boats serve Savary Island; a Sarah Point drop is on request, so book
-       ahead: <a href="tel:+16044839749">604-483-9749</a>. Other drop points (Bliss
-       Landing, say) become a private charter &mdash; they&rsquo;ll point you to someone.</p>
+       ahead: <a href="tel:+16044839749">604-483-9749</a>. Confirm the landing point, tide limits, luggage and pet rules when booking.</p>
     <p>There is rough road access part way via Malaspina Road if you&rsquo;d rather walk in,
-       but the boat drop at the point is how most thru-hikes begin.</p>
+       but confirm the vehicle, road condition and final walking distance with the operator.</p>
   </div>
 </section>
 
 <section>
   <h2>Getting around Powell River</h2>
   <div class="card">
-    <p><a href="https://www.bctransit.com/powell-river/" target="_blank" rel="noopener">BC Transit&rsquo;s Powell River system</a> covers town, the rural connections, and an
-       on-demand service. $2.25 a ride, $4.50 for a day pass &mdash; and you can just tap a
-       debit card or Apple&nbsp;Pay on the bus, or use the Umo app. Two catches:
-       <b>no pets</b>, and <b>no Thursday service</b> &mdash; check the schedule before you
-       plan around it.</p>
+    <p><a href="https://www.bctransit.com/powell-river/" target="_blank" rel="noopener">BC Transit&rsquo;s Powell River system</a> covers town and some rural connections. A ride is $2.25 and a DayPASS is $4.50 as of August 2026. Small pets are allowed only in a secure hand-held carrier. Route 12 serves Lang Bay and some trips reach Saltery Bay; several marked trips do not run on Thursdays. Check the exact route and day before relying on it.</p>
   </div>
 </section>
 
 <section>
   <h2>The official map</h2>
   <div class="card">
-    <p>qPAWS publishes <a href="https://sunshinecoasttrail.com/maps/" target="_blank" rel="noopener">the official Sunshine Coast Trail maps</a> &mdash; overview and section maps,
-       plus the printed map sold locally. Buying the paper one funds the volunteers who
-       build the huts and cut the deadfall. Carry it; batteries die.</p>
+    <p>qPAWS publishes <a href="https://sunshinecoasttrail.com/plan-your-hike/maps/" target="_blank" rel="noopener">official overview and section maps</a>. Carry backup route information.</p>
   </div>
 </section>
 
 <section>
   <h2>The shape of the trip</h2>
   <div class="card">
-    <p>Most people walk <b>north to south</b>: water taxi to Sarah Point, 180&nbsp;km later
-       step off at Saltery Bay straight onto the ferry home. No car shuttle, no backtracking
-       &mdash; the trail ends at the boat.</p>
+    <p>A north-to-south trip starts at Sarah Point and finishes beside the Saltery Bay ferry terminal. A south-to-north trip needs a planned pickup from Sarah Point or another northern access.</p>
   </div>
 </section>
 
@@ -293,8 +140,9 @@
   <div class="wrap">
     <p>An independent app for the Sunshine Coast Trail. Not affiliated with or endorsed by qPAWS.<br>
     The trail is built and maintained by <a href="https://sunshinecoasttrail.com/" target="_blank" rel="noopener">qPAWS</a> — please support them.</p>
-    <p>Questions: <a href="mailto:info@milecheckapp.com">info@milecheckapp.com</a></p>
+    <p><a href="/support/">Support</a> · <a href="/privacy/">Privacy</a> · <a href="mailto:sct@milecheckapp.com">sct@milecheckapp.com</a></p>
   </div>
 </footer>
+<script src="/assets/site.js?v=20260825b" defer></script>
 </body>
 </html>

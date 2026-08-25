@@ -5,4 +5,6 @@
   <url><loc>https://sunshinecoasttrail.app/resources/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://sunshinecoasttrail.app/getting-there/</loc></url>
   <url><loc>https://sunshinecoasttrail.app/tips/</loc></url>
+  <url><loc>https://sunshinecoasttrail.app/support/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://sunshinecoasttrail.app/privacy/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>

@@ -3,426 +3,132 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sunshine Coast Trail Tips — What I Learned Walking It</title>
-<meta name="description" content="Hard-won tips for the Sunshine Coast Trail: which huts have no water and where to fill before the climbs, how the markers and reroutes actually work, resupply drops at Shingle Mill and Lang Bay, splitting shuttle costs, dogs in huts, and a Savary Island day trip.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Sunshine Coast Trail Notes — Water, Huts &amp; Junctions</title>
+<meta name="description" content="Dated SCT field notes about dry camps, bear caches, kilometre markers, confusing junctions, cell coverage, transport and resupply.">
 <link rel="canonical" href="https://sunshinecoasttrail.app/tips/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#0E2217">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Sunshine Coast Trail app">
-<meta property="og:title" content="Sunshine Coast Trail Tips — What I Learned Walking It">
-<meta property="og:description" content="Hard-won tips for the Sunshine Coast Trail: which huts have no water and where to fill before the climbs, how the markers and reroutes actually work, resupply drops at Shingle Mill and Lang Bay, splitting shuttle costs, dogs in huts, and a Savary Island day trip.">
+<meta property="og:site_name" content="Sunshine Coast Trail Planner">
+<meta property="og:title" content="Sunshine Coast Trail Notes — Water, Huts &amp; Junctions">
+<meta property="og:description" content="Dated SCT field notes about dry camps, bear caches, kilometre markers and confusing junctions.">
 <meta property="og:url" content="https://sunshinecoasttrail.app/tips/">
 <meta property="og:image" content="https://sunshinecoasttrail.app/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="View from a summit on the Sunshine Coast Trail">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sunshine Coast Trail Tips — What I Learned Walking It">
-<meta name="twitter:description" content="Hard-won tips for the Sunshine Coast Trail: which huts have no water and where to fill before the climbs, how the markers and reroutes actually work, resupply drops at Shingle Mill and Lang Bay, splitting shuttle costs, dogs in huts, and a Savary Island day trip.">
+<meta name="twitter:title" content="Sunshine Coast Trail Notes — Water, Huts &amp; Junctions">
+<meta name="twitter:description" content="Dated SCT field notes about dry camps, bear caches, kilometre markers and confusing junctions.">
 <meta name="twitter:image" content="https://sunshinecoasttrail.app/og.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&display=swap" rel="stylesheet">
-<style>
-  /* The trail's own visual world: orange diamond blazes on wood, deep PNW
-     forest, cream paper. One display face (Fraunces) with real character;
-     body stays the system stack for speed and honesty. */
-  :root{
-    --paper:#F5F1E6; --panel:#FBF8EF; --sunk:#ECE6D6;
-    --ink:#26221A; --dim:#5B5546; --faint:#8A8371;
-    --forest:#1E3B2A; --forest-deep:#152B1F; --pine:#2E5B3E;
-    --blaze:#C2540A; --blaze-soft:#F4E3D2;
-    --cream:#F7F3E6; --cream-dim:#CFDACA;
-    --line:rgba(43,34,20,.16);
-    --display:"Fraunces",Georgia,serif;
-    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);
-       line-height:1.62;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:680px;margin:0 auto;padding:0 22px}
-
-  /* Masthead: a full-bleed forest band with faint contour lines. */
-  /* Leah's own photo from the trail, summer 2026. The scrim is a three-stop
-     gradient rather than a flat wash: light over the view so the lake and
-     the mountains actually read, heavy at the bottom where the type sits. */
-  header{background-color:var(--forest);color:var(--cream);
-         padding:64px 0 44px;
-         background-image:
-           linear-gradient(180deg,
-             rgba(14,34,23,.18) 0%,
-             rgba(14,34,23,.40) 45%,
-             rgba(14,34,23,.90) 100%),
-           url("/banner.jpg");
-         background-size:cover;
-         background-position:center 46%;
-         background-repeat:no-repeat}
-  @media (max-width:700px){
-    header{background-image:
-             linear-gradient(180deg,
-               rgba(14,34,23,.22) 0%,
-               rgba(14,34,23,.48) 45%,
-               rgba(14,34,23,.92) 100%),
-             url("/banner-small.jpg")}
-  }
-  header h1,header .tag{text-shadow:0 1px 14px rgba(8,18,12,.55)}
-  header .wrap{text-align:left}
-  .brandrow{display:flex;align-items:center;gap:14px}
-  .blaze{width:46px;height:46px;color:var(--blaze);flex:none}
-  h1{font-family:var(--display);font-weight:900;font-size:clamp(30px,6vw,44px);
-     line-height:1.06;margin:18px 0 10px;letter-spacing:-.01em;color:var(--cream)}
-  .tag{color:var(--cream-dim);font-size:17.5px;margin:0;max-width:32em}
-  nav{display:flex;gap:22px;flex-wrap:wrap;margin:28px 0 0}
-  nav a{font-size:13.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-        color:var(--cream);text-decoration:none;border-bottom:2px solid rgba(247,243,230,.25);
-        padding-bottom:3px}
-  nav a:hover{border-bottom-color:var(--blaze);color:#fff}
-
-  main{padding:14px 0 70px}
-  section{margin:38px 0}
-
-  /* Section headers as routed signboards. */
-  h2{display:inline-block;font-family:var(--font);font-size:12.5px;font-weight:800;
-     letter-spacing:.15em;text-transform:uppercase;color:var(--cream);
-     background:var(--forest);padding:7px 14px 6px;border-radius:6px;margin:0 0 16px;
-     box-shadow:inset 0 0 0 1.5px rgba(247,243,230,.22)}
-  h3{font-family:var(--display);font-weight:700;font-size:21px;color:var(--forest);
-     margin:30px 0 8px;letter-spacing:0}
-  p{margin:0 0 14px;font-size:16.5px}
-  ul{margin:0 0 16px;padding-left:24px}
-  li{margin:7px 0;font-size:16.5px}
-  li::marker{color:var(--blaze)}
-
-  a{color:var(--pine);text-decoration-color:rgba(46,91,62,.4);text-underline-offset:3px}
-  a:hover{color:var(--blaze);text-decoration-color:var(--blaze)}
-
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;
-        padding:20px 22px;margin:16px 0}
-  .note{background:var(--blaze-soft);border-left:3px solid var(--blaze);border-radius:0 10px 10px 0;
-        padding:13px 16px;font-size:15px;color:#59401f;margin:16px 0}
-  .note b{color:var(--blaze)}
-  code{background:var(--sunk);padding:2px 6px;border-radius:5px;font-size:14px}
-  .wtable-wrap{overflow-x:auto;margin:16px 0 0}
-  .wtable{border-collapse:collapse;width:100%;min-width:480px;font-size:15px}
-  .wtable th{font-size:11.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
-             color:var(--faint);text-align:left;padding:0 14px 8px 0;border-bottom:2px solid var(--forest)}
-  .wtable td{padding:8px 14px 8px 0;border-bottom:1px solid var(--line);vertical-align:top}
-  .wtable td:nth-child(3),.wtable td:nth-child(4),.wtable th:nth-child(3),.wtable th:nth-child(4)
-    {text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-  .wtable tr.wtotal td{border-bottom:none;border-top:2px solid var(--forest);font-weight:800;color:var(--forest)}
-  .checkline{display:flex;gap:11px;align-items:flex-start;font-size:16.5px;margin:9px 0}
-  .checkline span:first-child{color:var(--blaze);font-weight:800;flex:none;font-size:13px;
-        transform:translateY(4px)}
-
-  footer{background:var(--forest-deep);color:var(--cream-dim);padding:30px 0 56px;
-         font-size:14px;margin-top:20px}
-  footer a{color:var(--cream)}
-  footer .wrap{text-align:left}
-</style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Sunshine Coast Trail Packing List", "description": "What to pack for the Sunshine Coast Trail, from a 2026 thru-hike: pack size and weight, sleep system for the huts, water capacity for the dry camps, bear spray rules if you fly in, freeze-dried food prices in Powell River, and what to leave behind. Dog section included.", "author": {"@type": "Person", "name": "Leah Gerber"}, "url": "https://sunshinecoasttrail.app/tips/", "about": {"@type": "Thing", "name": "Sunshine Coast Trail"}}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sunshinecoasttrail.app/"}, {"@type": "ListItem", "position": 2, "name": "Packing list", "item": "https://sunshinecoasttrail.app/tips/"}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght;600;700;800&amp;family=IBM+Plex+Sans:wght;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20260825b">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Sunshine Coast Trail Notes","description":"Dated field notes about water, huts, wayfinding, resupply and transport on the Sunshine Coast Trail.","author":{"@type":"Person","name":"Leah Gerber"},"datePublished":"2026-08-25","dateModified":"2026-08-25","image":"https://sunshinecoasttrail.app/og.png","url":"https://sunshinecoasttrail.app/tips/","about":{"@type":"Thing","name":"Sunshine Coast Trail"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sunshinecoasttrail.app/"},{"@type":"ListItem","position":2,"name":"Trail notes","item":"https://sunshinecoasttrail.app/tips/"}]}</script>
 </head>
-<body>
+<body class="legacy-page" style="--page-image:url('/assets/photos/summit.webp')">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <aside class="km-rail" aria-label="Page position shown as a trail kilometre"><div class="km-rail__ends" aria-hidden="true"><span>0</span><span>178</span></div><output class="km-rail__now" data-km-now>KM 000</output></aside>
 <header>
 <div class="wrap">
-  <svg class="blaze" viewBox="-0.5 -0.5 1 1" aria-label="Sunshine Coast Trail blaze" role="img">
-    <path fill="currentColor" fill-rule="evenodd" d="M 0.0000 -0.2700 C 0.0700 -0.2700 0.1400 -0.2700 0.1900 -0.2800 C 0.2300 -0.2900 0.2500 -0.3400 0.2900 -0.3800 C 0.3400 -0.4300 0.4100 -0.4100 0.4300 -0.3600 C 0.4600 -0.3100 0.4300 -0.2500 0.3800 -0.2200 C 0.3300 -0.1900 0.2900 -0.1700 0.2800 -0.1100 C 0.2700 -0.0700 0.2700 -0.0300 0.2700 0.0000 C 0.2700 0.0700 0.2700 0.1400 0.2800 0.1900 C 0.2900 0.2300 0.3400 0.2500 0.3800 0.2900 C 0.4300 0.3400 0.4100 0.4100 0.3600 0.4300 C 0.3100 0.4600 0.2500 0.4300 0.2200 0.3800 C 0.1900 0.3300 0.1700 0.2900 0.1100 0.2800 C 0.0700 0.2700 0.0300 0.2700 -0.0000 0.2700 C -0.0700 0.2700 -0.1400 0.2700 -0.1900 0.2800 C -0.2300 0.2900 -0.2500 0.3400 -0.2900 0.3800 C -0.3400 0.4300 -0.4100 0.4100 -0.4300 0.3600 C -0.4600 0.3100 -0.4300 0.2500 -0.3800 0.2200 C -0.3300 0.1900 -0.2900 0.1700 -0.2800 0.1100 C -0.2700 0.0700 -0.2700 0.0300 -0.2700 -0.0000 C -0.2700 -0.0700 -0.2700 -0.1400 -0.2800 -0.1900 C -0.2900 -0.2300 -0.3400 -0.2500 -0.3800 -0.2900 C -0.4300 -0.3400 -0.4100 -0.4100 -0.3600 -0.4300 C -0.3100 -0.4600 -0.2500 -0.4300 -0.2200 -0.3800 C -0.1900 -0.3300 -0.1700 -0.2900 -0.1100 -0.2800 C -0.0700 -0.2700 -0.0300 -0.2700 0.0000 -0.2700 Z M -0.0930 -0.1050 L 0.0930 -0.1050 A 0.0120 0.0120 0 0 1 0.1050 -0.0930 L 0.1050 0.0930 A 0.0120 0.0120 0 0 1 0.0930 0.1050 L -0.0930 0.1050 A 0.0120 0.0120 0 0 1 -0.1050 0.0930 L -0.1050 -0.0930 A 0.0120 0.0120 0 0 1 -0.0930 -0.1050 Z"/>
-  </svg>
-  <h1>Tips from walking it</h1>
-  <p class="tag">What I wish I&rsquo;d known, plus what the trail society and other hikers say.</p>
-  <nav>
-    <a href="../">The app</a>
+  <h1>Trail notes</h1>
+  <p class="tag">First-hand notes from a 2026 thru-hike, with reported information labelled separately.</p>
+  <nav aria-label="Main navigation">
+    <a href="../">SCT Planner app</a>
     <a href="../packing/">Packing list</a>
     <a href="../getting-there/">Getting there</a>
-    <a href="./">Tips</a>
+    <a href="./" aria-current="page">Trail notes</a>
     <a href="../resources/">Local services</a>
-    <a href="https://milecheckapp.com/sct-privacy/" target="_blank" rel="noopener">Privacy</a>
+    <a href="../support/">Support</a>
+    <a href="../privacy/">Privacy</a>
     <a href="https://sunshinecoasttrail.com/" target="_blank" rel="noopener">Official trail site</a>
   </nav>
 </div>
-</header><main>
+</header><main id="main">
 <div class="wrap">
 
 <section>
-  <div class="note">
-    Two kinds of tip below. <b>Mine</b> are from my own thru-hike &mdash; what I saw, filled,
-    ate and got wrong. <b>Reported</b> ones come from the trail society (qPAWS) or other
-    hikers, and I say so where they do. If the two disagree, I&rsquo;ve left both in.
-  </div>
+  <div class="note"><b>How these notes are sourced.</b> First-hand notes are from Leah&rsquo;s July 2026 thru-hike. Reported notes remain dated evidence. Official rules link to the responsible organization.</div>
 </section>
 
 <section>
-  <h2>Water is the thing to plan around</h2>
+  <h2>Water</h2>
+  <div class="evidence-card"><p class="evidence-card__source">Core record</p><h3>Manzanita is a dry camp.</h3><p>Southbound, Wednesday Lake is the last established permanent water before Manzanita. Fill for the night, morning and walk out.</p></div>
+  <div class="evidence-card"><p class="evidence-card__source">Core record</p><h3>Tin Hat has no water at camp.</h3><p>Southbound, Powell Lake at Fiddlehead Landing is the last established permanent water. Northbound, Elk Lake is the last established permanent water. Water nearer the summit has been reported, but its position and reliability remain uncertain.</p></div>
+  <div class="evidence-card"><p class="evidence-card__source">Leah · July 2026</p><h3>Carry full bottles from Sarah Point.</h3><p>A signed creek near the trailhead was flowing, but it was very small.</p></div>
+  <div class="evidence-card"><p class="evidence-card__source">Leah · July 2026</p><h3>Walt Hill water remains unverified.</h3><p>I found water downhill once. Its exact source and late-season reliability are not confirmed, so do not plan the camp around it.</p></div>
+  <p>Treat water from lakes, creeks and hut barrels. The app keeps established records separate from dated hiker reports.</p>
+</section>
+
+<section>
+  <h2>Huts and food storage</h2>
   <div class="card">
-    <p>Not gear, not fitness. Three of the best huts sit on summits with nothing running, and
-       small creeks go dry in a hot August.</p>
-    <div class="checkline"><span>◆</span><span><b>Tin Hat has no water at all.</b> Not at the
-      hut, not at the summit. Fill before the climb &mdash; Lewis Lake coming from the south end
-      is the reliable one. Heading north from Tin Hat can run 7&ndash;8&nbsp;km dry, further
-      than people expect.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Walt Hill:</b> guides say the nearest water
-      is 15&ndash;20 minutes off. I found a spring about five minutes downhill with good water
-      &mdash; but it&rsquo;s seasonal either way, so don&rsquo;t arrive empty in late
-      summer.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Manzanita Bluffs has none.</b> Wednesday Lake
-      around km&nbsp;12 is the last dependable fill before it. Three separate parties say the
-      same.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Sarah Point is essentially dry.</b> There&rsquo;s a tiny signed creek about
-      200&nbsp;m away, but it&rsquo;s tiny &mdash; don&rsquo;t plan a night on it. Get on the
-      boat with every bottle full, and know the first few sources after the start are
-      poor.</span></div>
-    <div class="checkline"><span>◆</span><span><b>The guidebook prints a source that
-      isn&rsquo;t there</b>, somewhere around km&nbsp;19.5&ndash;21.5. Nobody in my party found
-      it and I&rsquo;ve not met anyone who has. Don&rsquo;t plan on it.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Treat everything</b>, including the rainwater
-      barrels at huts.</span></div>
-    <p style="margin-top:12px">Water reliability moves month to month, so this is orientation,
-       not a list. The app carries every source with what&rsquo;s actually known about it &mdash;
-       including which ones are disputed and which nobody has ever checked.</p>
+    <ul>
+      <li>qPAWS huts are free and first-come. A plan in the app is not a reservation.</li>
+      <li>Carry shelter. A hut can be full and planned distances can change.</li>
+      <li>Field-verified bear caches: Rieveley Pond, Confederation Lake, Lewis Lake campground, Walt Hill and the Troubridge summit emergency shelter. Fiddlehead Landing was reported present.</li>
+      <li>No cache was seen at Anthony Island, Lois Lake campground or Troubridge Hut. The Troubridge summit emergency shelter is a separate location and does have one.</li>
+      <li>Carry a separate food-storage plan. A cache can be full or damaged.</li>
+    </ul>
   </div>
+  <div class="note">No permit is required to hike the SCT, and qPAWS huts are free. Inland Lake Provincial Park has separate backcountry camping permits and fees. Check <a href="https://bcparks.ca/reservations/backcountry-camping/permit-registration/" target="_blank" rel="noopener">BC Parks</a> before staying at Anthony Island.</div>
 </section>
 
 <section>
-  <h2>The huts</h2>
+  <h2>Marker posts and junctions</h2>
   <div class="card">
-    <div class="checkline"><span>◆</span><span><b>No reservations.</b> Free, first come, one night. qPAWS asks that bunks go to thru-hikers first, and that groups of eight or
-      more tent instead.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Carry a tent anyway.</b> Tin Hat is reachable
-      by logging road, so summer weekends bring car campers &mdash; one July report counted
-      thirty-plus people. A tent also lets you stop short or push past when the day goes
-      sideways.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Dogs aren&rsquo;t allowed inside.</b> If you bring
-      one, plan to tent every night, and make sure the tent has room for you and the dog
-      both.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Play the week against the crowds.</b> Hit the
-      quiet huts on the weekend so the popular ones land midweek. Weekends are when the road-
-      accessible huts fill with people who aren&rsquo;t walking the trail.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Mice are a problem in all of the huts.</b> Unless
-      you want holes chewed through to your granola bars, put ALL food in the bear cache.
-      Don&rsquo;t ever leave food behind. Pack it in, pack it out.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Bear caches exist at most huts, not all.</b>
-      On my walk: caches at Rieveley Pond, Confederation Lake, Lewis Lake, Walt Hill, Fiddlehead
-      Landing and the Troubridge emergency shelter. None at Anthony Island or Lois Lake, and I
-      didn&rsquo;t see one at the Troubridge hut. Carry cord and a dry bag and know how to hang
-      before you need to.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Two worth skipping:</b> Homestead around
-      km&nbsp;29 is a clearing between a road and a creek, and people who stayed wished
-      they&rsquo;d gone on to Rieveley&rsquo;s Pond. Elephant Lake is damp with room for one or
-      two tents &mdash; continue to Golden Stanley Hut.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Four huts have pellet stoves</b>
-      &mdash; Confederation Lake, Tin Hat, Walt Hill, Troubridge. qPAWS says not to depend on
-      them working or being stocked.</span></div>
+    <div class="checkline"><span>◆</span><span><b>Markers run from km&nbsp;0 at Sarah Point to km&nbsp;178 at Saltery Bay.</b> They count up southbound and down northbound. Reroutes mean some intervals are longer or shorter than one kilometre.</span></div>
+    <div class="checkline"><span>◆</span><span><b>Spring Lake to Elk Lake:</b> after crossing the main logging road, the trail re-enters uphill and north. I went south at this junction.</span></div>
+    <div class="checkline"><span>◆</span><span><b>Elk Lake has signed alternatives.</b> Signs refer to a road route and a Lewis Lake route. Follow current markers and junction signs.</span></div>
+    <div class="checkline"><span>◆</span><span><b>Rainy Day Lake and Troubridge are separate walks from the through-route.</b> Distances to Rainy Day Lake or the summit shelter include the spur; through-route distances stop at the junction.</span></div>
+    <div class="checkline"><span>◆</span><span><b>The finish has coastal and original-route choices.</b> Follow the current signs at the finish junctions.</span></div>
+    <div class="checkline"><span>◆</span><span><b>Some viewpoints are loops off the through-line.</b> At least one loop has its own kilometre marker.</span></div>
   </div>
+  <p>The app flags known junctions, but its route line is still being corrected. Send a clean GPX track to <a href="mailto:sct@milecheckapp.com">sct@milecheckapp.com</a>.</p>
 </section>
 
 <section>
-  <h2>Finding your way</h2>
+  <h2>Phone, GPS and trip plans</h2>
   <div class="card">
-    <div class="checkline"><span>◆</span><span><b>Walk north to south.</b> qPAWS built it that
-      way &mdash; roughly twice the markers face you, and the signage is better. You also move
-      with the flow instead of meeting everyone head-on at the huts. Walking the other way
-      works too, and the app flips to match whichever way you go.</span></div>
-    <div class="checkline"><span>◆</span><span><b>The markers are directional.</b> Squares face
-      you walking south, diamonds face north.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Pink ribbon means a reroute.</b> Follow it.
-      The old line has usually been logged over and can&rsquo;t be walked anyway.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Don&rsquo;t plan your day off the kilometre
-      posts.</b> The trail&rsquo;s 178 marker kilometres are more like 183&ndash;187 of actual
-      walking. Manzanita is marker km&nbsp;16 and about 21&nbsp;km from Sarah Point. Newer signs
-      are better; older ones predate reroutes.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Places it&rsquo;s easy to go wrong</b> (all four
-      are flagged on the app&rsquo;s map): the big logging-road crossing between Spring Lake and
-      Elk Lake, around km&nbsp;95&ndash;97 &mdash; the trail goes back in uphill, not along the
-      road. The Dixon Road exit after Walt Hill, around km&nbsp;135 &mdash; unmarked, and people
-      walk past it. Scout Mountain&rsquo;s viewpoint bench, around km&nbsp;46&ndash;50 &mdash;
-      the path is the narrow one in front of it. And the stretch between Elk Lake and Walt Hill,
-      km&nbsp;110&ndash;122 &mdash; qPAWS abandoned the inside route, so old maps and routing
-      apps still argue; follow the orange markers on the outside route.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Five huts sit off the through-line.</b> Anthony
-      Island (km&nbsp;65) and Fiddlehead Landing (km&nbsp;81) are short detours; Elk Lake
-      (km&nbsp;110) is signed two ways; Troubridge (km&nbsp;158) is its own walk; Rainy Day Lake
-      (km&nbsp;169) is about 300&nbsp;m downhill. Read the junction signs rather than the line
-      on a screen.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Viewpoint loops rejoin the trail</b> &mdash;
-      Scout Mountain and the Sliammon Lakes loops are the known ones, and the official section
-      maps show more between Manzanita and Powell River. At least one carries its own kilometre
-      marker, so being off the line there doesn&rsquo;t mean you&rsquo;re lost.</span></div>
+    <ul>
+      <li>Download maps and open them once before leaving signal.</li>
+      <li>GPS works in airplane mode. Cellular coverage is intermittent and varies by carrier, weather and terrain.</li>
+      <li>A recorded track can contain gaps or bad fixes. Carry backup route information.</li>
+      <li>Leave your route, planned nights, party members and an overdue time with someone at home.</li>
+      <li>A manual family update shows only what the hiker chose to publish. It is a dated update.</li>
+      <li>Carry a satellite communicator if your plan depends on sending messages without cell service.</li>
+    </ul>
   </div>
 </section>
 
 <section>
-  <h2>Days, climbs and the season</h2>
+  <h2>Transport and resupply</h2>
+  <p>Schedules, prices, pet rules and access conditions change. Use the current-source links on <a href="/getting-there/">Getting there</a> and the provider list in <a href="/resources/">Local services</a>.</p>
   <div class="card">
-    <div class="checkline"><span>◆</span><span><b>Ignore anyone&rsquo;s prescribed day count.</b>
-      I was told nine to eleven days. Mine took sixteen. Take the days you take.</span></div>
-    <div class="checkline"><span>◆</span><span><b>The south end climbs more than people
-      expect.</b> Golden Stanley up to Troubridge is roughly a thousand metres before the long
-      descent to Rainy Day. Fiddlehead Landing to Tin Hat is the hardest day per kilometre on
-      the trail.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Snow lingers up high into early summer</b>
-      &mdash; Tin Hat, Walt Hill, Troubridge. It swings hard year to year: nearly clear one May,
-      waist-deep the next.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Expect a fire ban in July and August.</b>
-      Fires are only ever allowed in existing pits with dead wood, and the Coastal Fire Centre
-      bans them most high summers. Plan on the stove.</span></div>
-    <div class="checkline"><span>◆</span><span><b>September empties out.</b> Mid-May through
-      August is the busy stretch, heavily so on the northern section. One September party met a
-      single day hiker in six days.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Late-summer smoke can erase the
-      viewpoints.</b> One August party lost Tin Hat, Walt Hill and Troubridge
-      entirely.</span></div>
-    <div class="checkline"><span>◆</span><span><b>It&rsquo;s a forest walk.</b> Under 10&nbsp;km
-      of the 180 is actually along the ocean.</span></div>
+    <ul>
+      <li>Sarah Point can be reached by water taxi or road access arranged with a capable operator.</li>
+      <li>Route&nbsp;12 serves parts of the south end; only some trips reach Saltery Bay, and several marked weekday trips do not run Thursday.</li>
+      <li>BC Transit permits only small pets in a secure hand-held carrier. Confirm dogs directly with private transport providers.</li>
+      <li>Arrange any resupply hold or drop directly. Do not leave a box without confirmation.</li>
+    </ul>
   </div>
 </section>
 
 <section>
-  <h2>Food and resupply</h2>
-  <div class="card">
-    <div class="checkline"><span>◆</span><span><b>You don&rsquo;t have to carry it all.</b> Drop
-      pre-packed boxes at the Shingle Mill (right on the trail around km&nbsp;50) or the Lang Bay
-      Store (about 2.5&nbsp;km off the Dixon Road crossing). Both have held hikers&rsquo; bags
-      free. Call first &mdash; it&rsquo;s a favour, not a service, and the storage isn&rsquo;t
-      secured.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Sunshine Coast Shuttle will place drops for
-      you</b>, but it&rsquo;s pricey &mdash; one group paid $300 for a single mid-trail
-      drop.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Buy food in Powell River, not on the way.</b>
-      Save-On-Foods and Quality Foods are both on the Joyce Avenue strip, about 25 minutes uphill
-      from the Westview ferry. Freeze-dried pouches at the outdoor shop run $15&ndash;23 each
-      &mdash; order those before you come.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Bring your dog&rsquo;s food with you.</b> Town
-      won&rsquo;t stock their brand. And it&rsquo;s heavy &mdash; switch to a sport formula
-      before the trip and bring peanut butter for calories.</span></div>
-    <div class="checkline"><span>◆</span><span><b>The Shinglemill Pub is the mid-trail meal.</b>
-      The trail comes off Scout Mountain right at it.</span></div>
-  </div>
-</section>
-
-<section>
-  <h2>Getting rides, and splitting them</h2>
-  <div class="card">
-    <div class="checkline"><span>◆</span><span><b>Shuttles are expensive alone and reasonable
-      shared.</b> One pair paid $375 privately from Saltery Bay to Sarah Point, and were quoted
-      about $105 each to join another party going the same day. Call and ask to be put on an
-      existing run &mdash; that&rsquo;s the whole trick.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Sarah Point has no dock.</b> It&rsquo;s a
-      rocky bluff, and vehicles only get within about 500&nbsp;m. Lund Water Taxi
-      (<a href="tel:+16044839749">604-483-9749</a>) drops there on request and takes well-behaved
-      dogs free, tide permitting. Terracentric runs a flat $225 + GST for up to four, at any
-      tide, but no dogs.</span></div>
-    <div class="checkline"><span>◆</span><span><b>The bus takes no dogs</b> &mdash; BC Transit,
-      verified the hard way. It also doesn&rsquo;t run Thursdays.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Treat the ferries as a trip leg of their
-      own.</b> Earls Cove ran an hour late both ways for one party, there&rsquo;s no food there,
-      and Mondays and Fridays are slammed. Build a travel day at each end.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Parking:</b> free but unsecured at the Saltery
-      Bay kiosk, Lang Bay, Dixon Road and in town. Lund&rsquo;s lot by the water taxi is about
-      $13 a day with a two-day minimum. Shingle Mill has free roadside parking &mdash; the road,
-      not the pub lot.</span></div>
-  </div>
-</section>
-
-<section>
-  <h2>Your phone will not save you</h2>
-  <div class="card">
-    <div class="checkline"><span>◆</span><span><b>Expect no service between Powell River and
-      about Lang Bay.</b> No carrier fixes it. Tell your family that before you go, so silence
-      doesn&rsquo;t read as trouble.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Signal, where it exists, is on high points</b>
-      &mdash; Tin Hat, Manzanita, Walt Hill, Troubridge, Rainy Day Lake. Hikers also report a bar
-      at Rieveley Pond, Fairview and much of the last stretch into Saltery Bay. Treat any single
-      spot as luck.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Airplane mode from trailhead to town.</b> Out
-      of coverage a phone burns itself down hunting for towers. GPS still works in airplane
-      mode.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Don&rsquo;t depend on a tracking app.</b> Mine
-      came out with gaps and bad distances, and the phone was dead a lot. Nice to have, not
-      something to navigate by.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Leave a trip plan with someone</b> &mdash;
-      route, hut-by-hut dates, who&rsquo;s with you, and a hard check-in deadline. If it passes,
-      their job is to call 911. Rescue in BC is free and they&rsquo;d rather come early than
-      late.</span></div>
-  </div>
-</section>
-
-<section>
-  <h2>Feet, body, camp</h2>
-  <div class="card">
-    <div class="checkline"><span>◆</span><span><b>Tape a hot spot the second you feel it.</b>
-      Stop, pack off, dry the skin, tape. Not at the next break &mdash; that&rsquo;s how it
-      becomes a blister. Pre-cut strips at home; never wrap all the way around a toe, and never
-      tape over broken skin.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Poles change the descents.</b> Lengthen them
-      before a long one, plant ahead so the pole loads before your foot lands. There&rsquo;s
-      real research behind it &mdash; measurably less force through the knee.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Nothing dries overnight here.</b> Coastal
-      nights are muggy even without rain. Dry things in the morning sun or at a sunny break
-      instead, and keep wet clothes and boots out of the tent &mdash; the moisture ends up on
-      your sleeping bag.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Fleece over down for the mid-layer.</b> Down
-      quits when it&rsquo;s damp. Keep down as a dry camp layer if you bring it.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Check yourself for ticks</b> after the walk
-      &mdash; the season runs March into October here.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Bear spray within reach, not buried.</b> Bears,
-      cougars and wolves all live along the trail. Expect sign more than animals &mdash; one
-      party saw plenty of scat and nothing else. Buy it in Powell River; it can&rsquo;t fly, and
-      neither can stove fuel.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Swim.</b> Wednesday, Confederation, Elk and
-      Rainy Day all deliver, the last two with docks. It&rsquo;s the best thing on the
-      trail.</span></div>
-  </div>
-</section>
-
-<section>
-  <h2>Town, at either end</h2>
-  <div class="card">
-    <div class="checkline"><span>◆</span><span><b>Nancy&rsquo;s Bakery in Lund</b> &mdash; the
-      cinnamon buns are the reason everyone mentions it. Time your boat around it.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Townsite Brewing</b> is the post-hike beer, in
-      the 1939 art-deco building in the historic Townsite.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Laundry:</b> Westview Dry Cleaners and
-      Laundromat on Joyce Avenue, self-serve or drop-off. Don&rsquo;t wash your clothes in the
-      lakes.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Showers:</b> Haywire Bay campground has coin
-      showers, a couple of dollars.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Leave a donation.</b> qPAWS suggests about $5
-      a day per hiker for hut and trail upkeep. Volunteers built every one of these huts and cut
-      every blowdown. Budget it like a fee.</span></div>
-    <div class="checkline"><span>◆</span><span><b>The printed guidebook and map</b> are sold at
-      the qathet Visitor Centre and nowhere online. Worth having &mdash; but see the water source
-      above that doesn&rsquo;t exist.</span></div>
-  </div>
-</section>
-
-<section>
-  <h2>If you have a spare day: Savary Island</h2>
-  <div class="card">
-    <p>Fifteen minutes by water taxi from Lund, white sand and the warmest ocean swimming
-       you&rsquo;ll get in this province. In July and August the boat leaves Lund roughly hourly
-       from 9&nbsp;am, back from Savary on the half hour &mdash; confirm your return when you
-       book, because the last one is early evening and the schedule moves.</p>
-    <div class="checkline"><span>◆</span><span><b>Walk-on only.</b> Leave the car in Lund. A
-      land taxi meets the boat if you need to get across the island, or bring a bike for the
-      sand roads.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Bring everything.</b> No ATMs, no public
-      washrooms, no water, no garbage. Pack it in and out.</span></div>
-    <div class="checkline"><span>◆</span><span><b>Nowhere public to sleep.</b> Most of the island
-      is private, and Sunshine Coast Tourism actively discourages day-tripping because the
-      amenities are so thin. Go knowing that, or don&rsquo;t go.</span></div>
-    <div class="checkline"><span>◆</span><span><b>The dunes are 10,000 years old</b> &mdash; the
-      best coastal dune ecosystem in western Canada, per the island&rsquo;s land trust. Stay
-      off them.</span></div>
-  </div>
-</section>
-
-<section>
-  <div class="note">
-    Got a correction, or something the trail taught you that isn&rsquo;t here? Send it:
-    <a href="mailto:info@milecheckapp.com">info@milecheckapp.com</a>. Conditions change and
-    I&rsquo;d rather this page be right than finished.
-  </div>
+  <h2>Before leaving</h2>
+  <ul>
+    <li>Check the <a href="https://sunshinecoasttrail.com/" target="_blank" rel="noopener">official SCT site</a> and official social updates for reroutes and closures.</li>
+    <li>Check current fire restrictions. Carry a stove and do not depend on a fire for cooking.</li>
+    <li>Check transport schedules directly with each operator.</li>
+    <li>Tell someone when to call 911 if you are overdue.</li>
+  </ul>
+  <div class="note">Send corrections with a date and source to <a href="mailto:sct@milecheckapp.com">sct@milecheckapp.com</a>.</div>
 </section>
 
 </div>
@@ -431,8 +137,9 @@
   <div class="wrap">
     <p>An independent app for the Sunshine Coast Trail. Not affiliated with or endorsed by qPAWS.<br>
     The trail is built and maintained by <a href="https://sunshinecoasttrail.com/" target="_blank" rel="noopener">qPAWS</a> — please support them.</p>
-    <p>Questions: <a href="mailto:info@milecheckapp.com">info@milecheckapp.com</a></p>
+    <p><a href="/support/">Support</a> · <a href="/privacy/">Privacy</a> · <a href="mailto:sct@milecheckapp.com">sct@milecheckapp.com</a></p>
   </div>
 </footer>
+<script src="/assets/site.js?v=20260825b" defer></script>
 </body>
 </html>

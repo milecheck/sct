@@ -1,255 +1,176 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sunshine Coast Trail App — Offline Map, Huts, Water & Trip Planner</title>
-<meta name="description" content="An offline app for the Sunshine Coast Trail, Canada's longest hut-to-hut trail. Works with no signal: the trail's own kilometre posts, water sources with dated reports, all 15 huts, and a trip planner. Built by a hiker who walked all 178 km.">
-<link rel="canonical" href="https://sunshinecoasttrail.app/">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="theme-color" content="#0E2217">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Sunshine Coast Trail app">
-<meta property="og:title" content="Sunshine Coast Trail App — Offline Map, Huts, Water & Trip Planner">
-<meta property="og:description" content="An offline app for the Sunshine Coast Trail, Canada's longest hut-to-hut trail. Works with no signal: the trail's own kilometre posts, water sources with dated reports, all 15 huts, and a trip planner. Built by a hiker who walked all 178 km.">
-<meta property="og:url" content="https://sunshinecoasttrail.app/">
-<meta property="og:image" content="https://sunshinecoasttrail.app/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sunshine Coast Trail App — Offline Map, Huts, Water & Trip Planner">
-<meta name="twitter:description" content="An offline app for the Sunshine Coast Trail, Canada's longest hut-to-hut trail. Works with no signal: the trail's own kilometre posts, water sources with dated reports, all 15 huts, and a trip planner. Built by a hiker who walked all 178 km.">
-<meta name="twitter:image" content="https://sunshinecoasttrail.app/og.png">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&display=swap" rel="stylesheet">
-<style>
-  /* The trail's own visual world: orange diamond blazes on wood, deep PNW
-     forest, cream paper. One display face (Fraunces) with real character;
-     body stays the system stack for speed and honesty. */
-  :root{
-    --paper:#F5F1E6; --panel:#FBF8EF; --sunk:#ECE6D6;
-    --ink:#26221A; --dim:#5B5546; --faint:#8A8371;
-    --forest:#1E3B2A; --forest-deep:#152B1F; --pine:#2E5B3E;
-    --blaze:#C2540A; --blaze-soft:#F4E3D2;
-    --cream:#F7F3E6; --cream-dim:#CFDACA;
-    --line:rgba(43,34,20,.16);
-    --display:"Fraunces",Georgia,serif;
-    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);
-       line-height:1.62;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:680px;margin:0 auto;padding:0 22px}
-
-  /* Masthead: a full-bleed forest band with faint contour lines. */
-  /* Leah's own photo from the trail, summer 2026. The scrim is a three-stop
-     gradient rather than a flat wash: light over the view so the lake and
-     the mountains actually read, heavy at the bottom where the type sits. */
-  header{background-color:var(--forest);color:var(--cream);
-         padding:64px 0 44px;
-         background-image:
-           linear-gradient(180deg,
-             rgba(14,34,23,.18) 0%,
-             rgba(14,34,23,.40) 45%,
-             rgba(14,34,23,.90) 100%),
-           url("/banner.jpg");
-         background-size:cover;
-         background-position:center 46%;
-         background-repeat:no-repeat}
-  @media (max-width:700px){
-    header{background-image:
-             linear-gradient(180deg,
-               rgba(14,34,23,.22) 0%,
-               rgba(14,34,23,.48) 45%,
-               rgba(14,34,23,.92) 100%),
-             url("/banner-small.jpg")}
-  }
-  header h1,header .tag{text-shadow:0 1px 14px rgba(8,18,12,.55)}
-  header .wrap{text-align:left}
-  .brandrow{display:flex;align-items:center;gap:14px}
-  .blaze{width:46px;height:46px;color:var(--blaze);flex:none}
-  h1{font-family:var(--display);font-weight:900;font-size:clamp(30px,6vw,44px);
-     line-height:1.06;margin:18px 0 10px;letter-spacing:-.01em;color:var(--cream)}
-  .tag{color:var(--cream-dim);font-size:17.5px;margin:0;max-width:32em}
-  nav{display:flex;gap:22px;flex-wrap:wrap;margin:28px 0 0}
-  nav a{font-size:13.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-        color:var(--cream);text-decoration:none;border-bottom:2px solid rgba(247,243,230,.25);
-        padding-bottom:3px}
-  nav a:hover{border-bottom-color:var(--blaze);color:#fff}
-
-  main{padding:14px 0 70px}
-  section{margin:38px 0}
-
-  /* Section headers as routed signboards. */
-  .opener{font-size:1.05rem}
-  ul.feat{padding-left:1.15rem;display:flex;flex-direction:column;gap:.6rem;margin:0}
-  ul.feat>li{font-size:15.5px;line-height:1.55}
-  ul.feat ul{padding-left:1.1rem;margin:.35rem 0 0;display:flex;flex-direction:column;gap:.2rem}
-  ul.feat ul li{font-size:14.5px;color:var(--dim)}
-  h2{display:inline-block;font-family:var(--font);font-size:12.5px;font-weight:800;
-     letter-spacing:.15em;text-transform:uppercase;color:var(--cream);
-     background:var(--forest);padding:7px 14px 6px;border-radius:6px;margin:0 0 16px;
-     box-shadow:inset 0 0 0 1.5px rgba(247,243,230,.22)}
-  h3{font-family:var(--display);font-weight:700;font-size:21px;color:var(--forest);
-     margin:30px 0 8px;letter-spacing:0}
-  p{margin:0 0 14px;font-size:16.5px}
-  ul{margin:0 0 16px;padding-left:24px}
-  li{margin:7px 0;font-size:16.5px}
-  li::marker{color:var(--blaze)}
-
-  a{color:var(--pine);text-decoration-color:rgba(46,91,62,.4);text-underline-offset:3px}
-  a:hover{color:var(--blaze);text-decoration-color:var(--blaze)}
-
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;
-        padding:20px 22px;margin:16px 0}
-  .note{background:var(--blaze-soft);border-left:3px solid var(--blaze);border-radius:0 10px 10px 0;
-        padding:13px 16px;font-size:15px;color:#59401f;margin:16px 0}
-  .note b{color:var(--blaze)}
-  code{background:var(--sunk);padding:2px 6px;border-radius:5px;font-size:14px}
-  .checkline{display:flex;gap:11px;align-items:flex-start;font-size:16.5px;margin:9px 0}
-  .checkline span:first-child{color:var(--blaze);font-weight:800;flex:none;font-size:13px;
-        transform:translateY(4px)}
-
-  footer{background:var(--forest-deep);color:var(--cream-dim);padding:30px 0 56px;
-         font-size:14px;margin-top:20px}
-  footer a{color:var(--cream)}
-  footer .wrap{text-align:left}
-</style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Sunshine Coast Trail app", "url": "https://sunshinecoasttrail.app/", "description": "An offline app for the Sunshine Coast Trail, Canada's longest hut-to-hut trail. Works with no signal: the trail's own kilometre posts, water sources with dated reports, all 15 huts, and a trip planner. Built by a hiker who walked all 178 km."}</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Sunshine Coast Trail Planner — Offline iPhone App</title>
+  <meta name="description" content="An independent, unofficial iPhone app for the Sunshine Coast Trail near Powell River, BC: offline map, kilometre markers, huts, water, access and trip planning.">
+  <link rel="canonical" href="https://sunshinecoasttrail.app/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#062f3b">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sunshine Coast Trail Planner">
+  <meta property="og:title" content="Sunshine Coast Trail Planner — Offline iPhone App">
+  <meta property="og:description" content="An independent, unofficial iPhone app for the Sunshine Coast Trail near Powell River, BC.">
+  <meta property="og:url" content="https://sunshinecoasttrail.app/">
+  <meta property="og:image" content="https://sunshinecoasttrail.app/og.png">
+  <meta property="og:image:alt" content="Mountain and lake view from the Sunshine Coast Trail">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sunshine Coast Trail Planner — Offline iPhone App">
+  <meta name="twitter:description" content="An independent, unofficial iPhone app for the Sunshine Coast Trail near Powell River, BC.">
+  <meta name="twitter:image" content="https://sunshinecoasttrail.app/og.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css?v=20260825b">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Sunshine Coast Trail Planner","applicationCategory":"NavigationApplication","operatingSystem":"iOS","description":"An independent, unofficial offline app for the Sunshine Coast Trail near Powell River, British Columbia.","url":"https://sunshinecoasttrail.app/","offers":{"@type":"Offer","description":"Free download with a planned one-time Offline Trail Pack purchase"},"author":{"@type":"Person","name":"Leah Gerber"}}</script>
 </head>
 <body>
-<header>
-<div class="wrap">
-  <svg class="blaze" viewBox="-0.5 -0.5 1 1" aria-label="Sunshine Coast Trail blaze" role="img">
-    <path fill="currentColor" fill-rule="evenodd" d="M 0.0000 -0.2700 C 0.0700 -0.2700 0.1400 -0.2700 0.1900 -0.2800 C 0.2300 -0.2900 0.2500 -0.3400 0.2900 -0.3800 C 0.3400 -0.4300 0.4100 -0.4100 0.4300 -0.3600 C 0.4600 -0.3100 0.4300 -0.2500 0.3800 -0.2200 C 0.3300 -0.1900 0.2900 -0.1700 0.2800 -0.1100 C 0.2700 -0.0700 0.2700 -0.0300 0.2700 0.0000 C 0.2700 0.0700 0.2700 0.1400 0.2800 0.1900 C 0.2900 0.2300 0.3400 0.2500 0.3800 0.2900 C 0.4300 0.3400 0.4100 0.4100 0.3600 0.4300 C 0.3100 0.4600 0.2500 0.4300 0.2200 0.3800 C 0.1900 0.3300 0.1700 0.2900 0.1100 0.2800 C 0.0700 0.2700 0.0300 0.2700 -0.0000 0.2700 C -0.0700 0.2700 -0.1400 0.2700 -0.1900 0.2800 C -0.2300 0.2900 -0.2500 0.3400 -0.2900 0.3800 C -0.3400 0.4300 -0.4100 0.4100 -0.4300 0.3600 C -0.4600 0.3100 -0.4300 0.2500 -0.3800 0.2200 C -0.3300 0.1900 -0.2900 0.1700 -0.2800 0.1100 C -0.2700 0.0700 -0.2700 0.0300 -0.2700 -0.0000 C -0.2700 -0.0700 -0.2700 -0.1400 -0.2800 -0.1900 C -0.2900 -0.2300 -0.3400 -0.2500 -0.3800 -0.2900 C -0.4300 -0.3400 -0.4100 -0.4100 -0.3600 -0.4300 C -0.3100 -0.4600 -0.2500 -0.4300 -0.2200 -0.3800 C -0.1900 -0.3300 -0.1700 -0.2900 -0.1100 -0.2800 C -0.0700 -0.2700 -0.0300 -0.2700 0.0000 -0.2700 Z M -0.0930 -0.1050 L 0.0930 -0.1050 A 0.0120 0.0120 0 0 1 0.1050 -0.0930 L 0.1050 0.0930 A 0.0120 0.0120 0 0 1 0.0930 0.1050 L -0.0930 0.1050 A 0.0120 0.0120 0 0 1 -0.1050 0.0930 L -0.1050 -0.0930 A 0.0120 0.0120 0 0 1 -0.0930 -0.1050 Z"/>
-  </svg>
-  <h1>There&rsquo;s an app for the Sunshine Coast Trail</h1>
-  <p class="tag">Where you are, where the water is, where you&rsquo;ll sleep. Offline.</p>
-  <nav>
-    <a href="./">The app</a>
-    <a href="./packing/">Packing list</a>
-    <a href="./getting-there/">Getting there</a>
-    <a href="./tips/">Tips</a>
-    <a href="./resources/">Local services</a>
-    <a href="https://milecheckapp.com/sct-privacy/" target="_blank" rel="noopener">Privacy</a>
-    <a href="https://sunshinecoasttrail.com/" target="_blank" rel="noopener">Official trail site</a>
-  </nav>
-</div>
-</header>
-<main>
-<div class="wrap">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <aside class="km-rail" aria-label="Page position shown as a trail kilometre">
+    <div class="km-rail__ends" aria-hidden="true"><span>0</span><span>178</span></div>
+    <output class="km-rail__now" data-km-now>KM 000</output>
+  </aside>
 
-<section>
-  <p class="opener">An offline companion for the Sunshine Coast Trail &mdash; Canada&rsquo;s longest
-     hut-to-hut hiking trail, on British Columbia&rsquo;s upper Sunshine Coast near Powell River,
-     built and maintained by the volunteers of
-     <a href="https://sunshinecoasttrail.com/" target="_blank" rel="noopener">qPAWS</a>.</p>
-</section>
+  <div class="site-shell">
+    <header class="hero">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="site-nav__brand" href="/"><span class="site-nav__mark" aria-hidden="true">KM</span>Sunshine Coast Trail Planner</a>
+        <div class="site-nav__links">
+          <a aria-current="page" href="/">The app</a>
+          <a href="/packing/">Packing</a>
+          <a href="/getting-there/">Getting there</a>
+          <a href="/tips/">Trail notes</a>
+          <a href="/resources/">Local services</a>
+        </div>
+        <details class="nav-menu"><summary>Menu</summary><div class="nav-menu__panel"><a href="/">The app</a><a href="/packing/">Packing</a><a href="/getting-there/">Getting there</a><a href="/tips/">Trail notes</a><a href="/resources/">Local services</a></div></details>
+      </nav>
+      <div class="hero__body">
+        <p class="eyebrow">Independent · unofficial · iPhone beta</p>
+        <h1><span class="hero__prefix">An app for the</span> Sunshine Coast Trail</h1>
+        <p class="hero__dek">Offline planning and trail information for the route near qathet / Powell River, British Columbia. Progress follows the kilometre posts from Sarah Point to Saltery Bay.</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="mailto:sct@milecheckapp.com?subject=Sunshine%20Coast%20Trail%20TestFlight">Test the iPhone app</a>
+          <a class="button button--quiet" href="#guide">Read the trail guide</a>
+        </div>
+        <div class="hero__stats" aria-label="Trail facts">
+          <div class="hero__stat"><strong>0 → 178</strong><span>kilometre markers</span></div>
+          <div class="hero__stat"><strong>14</strong><span>huts · emergency shelters separate</span></div>
+          <div class="hero__stat"><strong>180 KM</strong><span>official trail length</span></div>
+          <div class="hero__stat"><strong>OFFLINE</strong><span>plan for little signal</span></div>
+        </div>
+      </div>
+      <div class="hero__foot"><span>Sarah Point · km 0</span><span>Scroll south ↓</span></div>
+    </header>
 
-<section>
-  <h2>Features</h2>
-  <ul class="feat">
-    <li><b>The map works with no signal.</b> The whole trail corridor is built into the app
-        &mdash; airplane mode the entire hike, nothing to download at a trailhead.
-      <ul>
-        <li>Your kilometre in the trail&rsquo;s own marker-post numbers</li>
-        <li>Numbered km markers along the line &mdash; every 25 zoomed out, every one up close</li>
-        <li>The trail coloured by elevation, green low to red high</li>
-        <li>Tap anything for its details: huts, water, road crossings, wayfinding traps</li>
-        <li>Pub, town and shop names from the basemap</li>
-        <li>Choose what&rsquo;s on the map: huts, water, road crossings, km markers, height colour</li>
-      </ul>
-    </li>
-    <li><b>Water.</b> Each source shows whether it runs year round, is seasonal, or is unchecked,
-        the last dated report, and when anyone actually verified it. The last permanent water
-        before a dry stretch is called out, in both directions.</li>
-    <li><b>Huts.</b> Dry camp, bear cache, reservation and closure notes, plus what&rsquo;s between
-        you and that hut: distance, water on the way, major climbs, and what time it gets dark.</li>
-    <li><b>Elevation profile</b> for the whole trail &mdash; scroll it end to end, tap any point
-        for the kilometre and height, with summits and huts named.</li>
-    <li><b>Road crossings and bailouts.</b></li>
-    <li><b>Plan by day.</b> Pick how many days you have and it splits the trail into nights that
-        end somewhere you can sleep &mdash; balanced by climb as well as distance, so a 18&nbsp;km
-        day with 1,400&nbsp;m of ascent isn&rsquo;t treated as the same size as a flat one.</li>
-    <li><b>Plan without GPS.</b> Pick any hut or type a kilometre and the whole app works from
-        there &mdash; useful at the kitchen table before you go.</li>
-    <li><b>Ferries and the bus, offline.</b> All three BC Ferries legs and the Powell River bus,
-        with the dates each schedule is good for.</li>
-    <li><b>Both directions</b>, kilometres or miles, and four screen modes including a red night
-        mode.</li>
-    <li><b>Trip recording</b> in the background through screen lock, exportable as GPX. Stays on
-        your phone unless you send it.</li>
-    <li><b>Trail feed</b> &mdash; notices, water, rides, lost &amp; found, trail conditions,
-        wayfinding, wildlife, huts, social.</li>
-    <li><b>Calendar.</b> Which hut you&rsquo;re at each night, who else says they&rsquo;ll be
-        there, that day&rsquo;s posts, the forecast and the day&rsquo;s ferries.</li>
-    <li><b>Family sharing</b> &mdash; one private link to the updates you choose to publish.
-        Not live tracking.</li>
-    <li><b>Local services offline</b> &mdash; shuttles, water taxi, ferries, resupply, gear, and
-        emergency numbers.</li>
-    <li><b>No account. No email. No phone number.</b> First name and where you&rsquo;re
-        travelling from are optional.</li>
-  </ul>
-</section>
+    <main id="main">
+      <section class="section">
+        <div class="section__inner reveal">
+          <div class="section__head">
+            <div class="section__index">01 / What it answers</div>
+            <div><h2>Five questions while hiking.</h2><p class="section__intro">Core map and planning data are available offline. Community updates require a network sync.</p></div>
+          </div>
+          <div class="questions">
+            <article class="question"><h3>Where am I?</h3><p>Your raw GPS position and the nearest trail-marker interval. GPS continues to work in airplane mode.</p></article>
+            <article class="question"><h3>Where am I planning to stop?</h3><p>Huts, campsites and saved nights. Hut plans are self-reported and do not reserve space.</p></article>
+            <article class="question"><h3>What is ahead?</h3><p>Water in walking order, the last established source, dry camps, road crossings, wayfinding notes and sunset.</p></article>
+            <article class="question"><h3>Can I get out here?</h3><p>Road crossings and access records show what is known about normal cars, 4×4 vehicles, ATVs and boats. Unverified vehicle access is labelled unknown.</p></article>
+            <article class="question"><h3>What have hikers reported?</h3><p>Dated trail reports cover water, huts, wayfinding, wildlife, rides, lost items and trail conditions.</p></article>
+          </div>
+        </div>
+      </section>
 
-<section>
-  <h2>The route line</h2>
-  <div class="note">
-    <b>The route line is a work in progress.</b>
-    It&rsquo;s drawn from OpenStreetMap and comes out shorter than the real walking distance, so
-    the app follows the trail&rsquo;s own kilometre markers and treats every distance it works out
-    as a minimum.
+      <section class="section section--dark">
+        <div class="section__inner reveal">
+          <div class="section__head">
+            <div class="section__index">02 / Why another app</div>
+            <div><h2>Doesn’t AllTrails do this?</h2><p class="section__intro">AllTrails provides offline maps, GPS navigation and trip recording. Sunshine Coast Trail Planner adds SCT marker progress, hut-night planning, dated water reports, access records and local transport.</p></div>
+          </div>
+          <div class="comparison" aria-label="What the Sunshine Coast Trail Planner adds">
+            <div class="comparison__base"><span>General trail apps</span><strong>Map · route · GPS · recording</strong></div>
+            <div class="comparison__plus"><span>This SCT app adds</span><ul><li>km 0–178 marker progress</li><li>hut-night and section planning</li><li>dated water evidence and last-water warnings</li><li>road-access cautions and bailouts</li><li>ferries, shuttles and local logistics</li></ul></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--white">
+        <div class="section__inner app-showcase">
+          <div class="phone-stage reveal" aria-label="Screens from the iPhone test build">
+            <figure class="phone phone--one"><img src="/assets/app/map.webp" width="430" height="932" alt="Sunshine Coast Trail Planner map showing the trail and nearby waypoints" loading="lazy"></figure>
+            <figure class="phone phone--two"><img src="/assets/app/family.webp" width="430" height="932" alt="Family sharing screen with a manual trip update" loading="lazy"></figure>
+          </div>
+          <div class="reveal">
+            <p class="eyebrow">SCT-specific</p>
+            <h2>SCT map and planning data.</h2>
+            <p class="section__intro">Included offline: map, marker numbers, huts, water, access records, ferry information and planning tools.</p>
+            <div class="feature-ledger">
+              <div class="feature-ledger__row"><span class="feature-ledger__n">01</span><div><strong>Offline map</strong><span>The SCT corridor map and Powell River map work in airplane mode.</span></div></div>
+              <div class="feature-ledger__row"><span class="feature-ledger__n">02</span><div><strong>Tonight details</strong><span>Selected hut sheets show distance, last-water notices, recent report counts and daylight.</span></div></div>
+              <div class="feature-ledger__row"><span class="feature-ledger__n">03</span><div><strong>Private recording</strong><span>Background trip recording stays on the phone until the hiker exports it.</span></div></div>
+              <div class="feature-ledger__row"><span class="feature-ledger__n">04</span><div><strong>Manual sharing</strong><span>A family page contains only the plans and updates the hiker chooses to publish.</span></div></div>
+              <div class="feature-ledger__row"><span class="feature-ledger__n">05</span><div><strong>No account</strong><span>No name, email address or phone number is required.</span></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="guide">
+        <div class="section__inner">
+          <div class="section__head reveal">
+            <div class="section__index">03 / Plan the trip</div>
+            <div><h2>Trail information on this site.</h2><p class="section__intro">Transport, water, huts, packing and local services. First-hand notes are dated. Reported information is labelled.</p></div>
+          </div>
+          <div class="guide-grid reveal">
+            <a class="guide-card" href="/getting-there/" style="--card-image:url('/assets/photos/ridge.webp')"><div class="guide-card__body"><span class="guide-card__kicker">Ferries · flights · water taxi</span><h3>Getting there</h3><p>Connections into Powell River and onward to Sarah Point or Saltery Bay.</p></div></a>
+            <a class="guide-card" href="/tips/" style="--card-image:url('/assets/photos/summit.webp')"><div class="guide-card__body"><span class="guide-card__kicker">Water · huts · wayfinding</span><h3>Trail notes</h3><p>Dated field notes, with reported observations labelled.</p></div></a>
+            <a class="guide-card" href="/packing/" style="--card-image:url('/assets/photos/hut.webp')"><div class="guide-card__body"><span class="guide-card__kicker">Gear · food · dog</span><h3>Packing list</h3><p>An interactive checklist and gear from Leah’s 2026 thru-hike.</p></div></a>
+            <a class="guide-card" href="/resources/" style="--card-image:url('/assets/photos/sign.webp')"><div class="guide-card__body"><span class="guide-card__kicker">Transport · resupply · local contacts</span><h3>Local services</h3><p>Direct links for transport, resupply and visitor information.</p></div></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight section--white">
+        <div class="section__inner truth-panel reveal">
+          <div class="truth-panel__marker"><div><strong>0–178</strong><span>Marker posts on trail</span></div></div>
+          <div class="truth-panel__copy"><h3>The route line is still being corrected.</h3><p>The current line comes from OpenStreetMap and measures shorter than the walk. Progress and planning follow the numbered posts. Some intervals are longer or shorter than one kilometre because of reroutes.</p><p>A clean GPX recording from the SCT helps correct the line. Send one to <a href="mailto:sct@milecheckapp.com">sct@milecheckapp.com</a>.</p></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section__inner split">
+          <div class="reveal"><p class="eyebrow">Testing now</p><h2>iPhone beta.</h2><p class="section__intro">The current TestFlight beta is iPhone-only.</p><ul class="plain-list"><li>Install through Apple TestFlight</li><li>Use it at home or on the trail</li><li>Report wrong water, missing junctions or confusing screens</li></ul><p><a class="button button--dark" href="mailto:sct@milecheckapp.com?subject=Sunshine%20Coast%20Trail%20TestFlight">Ask for a test link</a></p></div>
+          <div class="reveal"><p class="eyebrow">Planned purchase</p><div class="price">ONE TIME</div><p class="price-label">Offline Trail Pack · purchasing unavailable in beta</p><p>The download will be free. Raw GPS position and emergency information remain free. The paid pack is planned to include the complete offline map, Tonight Brief, water sequencing, saved itineraries and recording history.</p><p>No subscription.</p></div>
+        </div>
+      </section>
+
+      <section class="section section--white">
+        <div class="section__inner founder reveal">
+          <figure class="founder__photo"><img src="/assets/photos/hut.webp" width="1050" height="1400" loading="lazy" alt="Confederation Lake Hut on the Sunshine Coast Trail"></figure>
+          <div><p class="eyebrow">The founder</p><h2>Built by Leah Gerber.</h2><p>I thru-hiked the SCT in July 2026 with my dog. Planning meant cross-checking qPAWS maps, guidebooks, routing apps, transport providers and hiker reports. I built an offline app with the map, water records, huts, transport and planning details I needed.</p></div>
+        </div>
+      </section>
+
+      <section class="section section--tight">
+        <div class="section__inner donation reveal">
+          <div><p class="eyebrow">Trail maintenance</p><h2>qPAWS built the trail and huts.</h2><p>This app is independent and is not affiliated with qPAWS. Donations made through the official trail site go directly to the volunteer society.</p></div>
+          <a class="button button--primary" href="https://sunshinecoasttrail.com/get-involved/donate/" target="_blank" rel="noopener">Donate to qPAWS ↗</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__finish"><span>KM 178</span>Saltery Bay</div>
+        <div><nav class="site-footer__links" aria-label="Footer"><a href="/packing/">Packing</a><a href="/getting-there/">Getting there</a><a href="/tips/">Trail notes</a><a href="/resources/">Local services</a><a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="https://sunshinecoasttrail.com/" target="_blank" rel="noopener">Official trail site</a></nav><p class="site-footer__legal">Independent and unofficial. Not affiliated with or endorsed by the qathet Parks and Wilderness Society. Check current trail conditions, transport schedules and fire restrictions before leaving. Contact: <a href="mailto:sct@milecheckapp.com">sct@milecheckapp.com</a>.</p></div>
+      </div>
+    </footer>
   </div>
-  <p><b>This is where I need your input.</b> A clean GPS track from the trail &mdash; a Garmin
-     recording with distance and elevation &mdash; is exactly what makes that line better, and
-     every one I get goes straight into it:
-     <a href="mailto:info@milecheckapp.com">info@milecheckapp.com</a>.</p>
-</section>
-
-<section>
-  <h2>Price</h2>
-  <p><span class="price">One-time $9.99 cost</span></p>
-  <p><b>$1 from every paid download is intended for qPAWS</b>, the volunteers who built and
-     maintain this trail and its huts.</p>
-</section>
-
-<section>
-  <h2>Not out yet</h2>
-  <p>It&rsquo;s in testing on iPhone now, with Android to follow. At launch it will be
-     a one-time $9.99 purchase.</p>
-  <p><b>Walking the SCT between now and mid-September?</b> Testing is free and you keep the
-     app. Email the address attached to your Apple account to
-     <a href="mailto:info@milecheckapp.com">info@milecheckapp.com</a> and I&rsquo;ll send you
-     a TestFlight link. What I&rsquo;d want back is whatever you noticed &mdash; wrong water,
-     a missing junction, anything that read as nonsense on the trail.</p>
-</section>
-
-<section>
-  <h2>Partnerships</h2>
-  <p>The app carries a Local Services directory that works offline &mdash; shuttles, water taxis,
-     ferries, resupply, gear. If you run one and want to be listed, get in touch:
-     <a href="mailto:info@milecheckapp.com">info@milecheckapp.com</a></p>
-  <p>Listings are clearly labelled, and they never appear inside safety information &mdash; not
-     beside water, not beside a bailout, not in a hut card.</p>
-</section>
-
-<section>
-  <h2>Getting here by road?</h2>
-  <p><a href="https://milecheckapp.com/" target="_blank" rel="noopener">MileCheck</a> can help you plan your trip &mdash; it has the kilometre
-     markers and road alerts for BC highways, including the drive up the coast.
-     <a href="https://apps.apple.com/us/app/milecheck/id6759212851" target="_blank" rel="noopener">iPhone</a> &middot;
-     <a href="https://play.google.com/store/apps/details?id=app.milecheck.mobile" target="_blank" rel="noopener">Android</a></p>
-</section>
-</div>
-</main>
-<footer>
-  <div class="wrap">
-    <p>An independent app for the Sunshine Coast Trail. Not affiliated with or endorsed by qPAWS.<br>
-    The trail is built and maintained by <a href="https://sunshinecoasttrail.com/" target="_blank" rel="noopener">qPAWS</a> — please support them.</p>
-    <p>Questions: <a href="mailto:info@milecheckapp.com">info@milecheckapp.com</a></p>
-  </div>
-</footer>
+  <script src="/assets/site.js?v=20260825b" defer></script>
 </body>
 </html>

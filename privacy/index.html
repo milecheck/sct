@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Privacy — Sunshine Coast Trail Planner</title>
+  <meta name="description" content="Privacy policy for Sunshine Coast Trail Planner: location, trip recording, community posts, photos, family links and data deletion.">
+  <link rel="canonical" href="https://sunshinecoasttrail.app/privacy/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#062f3b">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sunshine Coast Trail Planner">
+  <meta property="og:title" content="Privacy — Sunshine Coast Trail Planner">
+  <meta property="og:description" content="How Sunshine Coast Trail Planner handles location, recordings, community data and photos.">
+  <meta property="og:url" content="https://sunshinecoasttrail.app/privacy/">
+  <meta property="og:image" content="https://sunshinecoasttrail.app/og.png">
+  <meta property="og:image:alt" content="Lake and mountain view on the Sunshine Coast Trail">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css?v=20260825b">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Sunshine Coast Trail Planner privacy policy","url":"https://sunshinecoasttrail.app/privacy/","dateModified":"2026-08-25","isPartOf":{"@type":"WebSite","name":"Sunshine Coast Trail Planner","url":"https://sunshinecoasttrail.app/"}}</script>
+</head>
+<body class="legacy-page" style="--page-image:url('/assets/photos/lake.webp')">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <aside class="km-rail" aria-label="Page position shown as a trail kilometre">
+    <div class="km-rail__ends" aria-hidden="true"><span>0</span><span>178</span></div>
+    <output class="km-rail__now" data-km-now>KM 000</output>
+  </aside>
+
+  <header>
+    <div class="wrap">
+      <h1>Privacy</h1>
+      <p class="tag">What stays on your phone, what reaches the community service and what other hikers can see.</p>
+      <nav aria-label="Main navigation">
+        <a href="/">SCT Planner app</a>
+        <a href="/packing/">Packing</a>
+        <a href="/getting-there/">Getting there</a>
+        <a href="/tips/">Trail notes</a>
+        <a href="/resources/">Local services</a>
+        <a href="/support/">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <section>
+        <p class="eyebrow">Updated August 25, 2026</p>
+        <p>Sunshine Coast Trail Planner is an independent app operated by Leah Gerber. No account is required. The app has no third-party advertising or analytics SDK.</p>
+        <p>The app does not sell personal information or share it for advertising. Links you open from the app and services you choose through the system share sheet have their own privacy practices.</p>
+        <div class="note"><strong>Current beta:</strong> The app is distributed through Apple TestFlight. No subscription or in-app purchase is offered in the beta, so the app does not receive payment information.</div>
+      </section>
+
+      <section>
+        <h2>Location on your phone</h2>
+        <h3>Map position</h3>
+        <p>When you enable location, the app reads your precise coordinate, GPS accuracy and timestamp. It uses that fix on your phone to draw your position and estimate a nearby trail-marker interval. Foreground fixes are not kept as a trip history.</p>
+
+        <h3>Trip recording</h3>
+        <p>Trip Recording is off until you tap Start. If you allow background location, the app stores coordinates, timestamps and any accuracy, altitude, speed, heading and mock-location fields supplied by the operating system. Recording can continue while the screen is locked until you stop it or the operating system interrupts it.</p>
+        <p>Recorded tracks stay in the app's local storage. They are not uploaded to the community service. You can export a track as GPX or delete it from the Trip Recording screen.</p>
+
+        <h3>Manual sharing</h3>
+        <p>A one-time family update can include an exact GPS fix, a rough trail section or no position. You choose the level before opening the system share sheet. The person or service you select receives the message.</p>
+      </section>
+
+      <section>
+        <h2>Other data kept on your phone</h2>
+        <p>Saved trips, destinations, hut-night plans, feed drafts and posts, pending sync operations, display and unit settings, the weather cache, journal entries, blocked-hiker choices and family-sharing settings are stored locally. The offline map and trail dataset ship with the app.</p>
+        <p>The app creates a random installation identifier for community features. Its edit credential is stored in iOS Keychain or Android's encrypted secure storage when available. Ordinary community data is stored in the app's local storage.</p>
+      </section>
+
+      <section>
+        <h2>Community service</h2>
+        <p>With a network connection, the TestFlight build contacts the community service when the app opens or returns to the foreground. It downloads current posts and plans and sends queued changes. The request includes the random installation identifier and edit credential. The server stores a one-way hash of the credential.</p>
+        <p>Hut-night plans can include an optional first name, where you are travelling from, hut, night, party size, walking direction and sleeping preference. They are self-reported plans and are visible to synced app users.</p>
+        <p>Feed posts can include an optional first name, where you are travelling from, category, text, date, reply, selected marker kilometre, water report, ride date, photo and an optional public contact field for rides or lost-and-found. The current composer does not publish raw GPS coordinates with a feed post. Community posts are public to synced app users.</p>
+        <p>A phone number, email address or social handle entered in the contact field is public. Removing a post later cannot remove copies another person already saw or saved.</p>
+      </section>
+
+      <section>
+        <h2>Community photos</h2>
+        <p>When you attach a photo, the app copies it into app storage, resizes it and re-encodes it before upload. Re-encoding removes embedded metadata, including the photo's GPS metadata. The original in your photo library is unchanged.</p>
+        <p>Uploaded photo files are stored in a private Cloudflare R2 bucket. An opaque photo ID, file type, size, author ID, report ID, moderation status and upload time are stored in Cloudflare D1. A photo is available through an opaque community-service URL. Hiding or deleting its post prevents a new uncached request from receiving the photo. A previously cached response can remain available for up to 24 hours.</p>
+        <p>An uploaded photo that is never attached to a synchronized post is deleted by an hourly cleanup after 24 hours. Deleting your synchronized post queues deletion of its server photo and database row. That deletion reaches the server after the app reconnects and syncs. Clearing a post does not delete the original from your photo library, and an app-managed local copy may remain until app storage is cleared.</p>
+        <p>A post already synchronized to another phone can remain in that phone&rsquo;s local storage after it is hidden or deleted on the server. Treat community posts and photos as public when publishing them.</p>
+      </section>
+
+      <section>
+        <h2>Family follow links</h2>
+        <p>A family link contains only the feed posts and planned hut nights you publish. It does not contain your complete recorded track or automatic GPS updates. Anyone with the private link can open it.</p>
+        <p>The page updates after your phone reconnects and synchronizes, so it may be hours or days behind. Turning off family sharing revokes the link after the revocation syncs. Call 911 if a hiker is overdue; the page does not monitor emergencies.</p>
+      </section>
+
+      <section>
+        <h2>Cloudflare and network data</h2>
+        <p>The community service runs on Cloudflare Workers. Community records are stored in Cloudflare D1 and photos in Cloudflare R2. Cloudflare processes normal request data, including IP address and technical request details, to deliver and protect the service.</p>
+        <p>The service uses the anonymous installation ID and IP address in fixed hourly rate-limit counters. These counters are used to limit abuse, not to build a profile. Expired counter windows are eligible for deletion during later service requests.</p>
+        <p>The app also checks the community service for an operator-written trail notice when it has signal. If you tap <strong>Check weather snapshot</strong>, the app requests current Powell River-area weather from Environment and Climate Change Canada and stores the returned snapshot on your phone. Opening an outside map, social link, official trail site or transport site sends you to that provider.</p>
+      </section>
+
+      <section>
+        <h2>Moderation</h2>
+        <p>You can report a community post or hut plan and block another hiker. Blocking is stored on your phone. A report sends the community service your anonymous author ID, the content ID, a fixed reason and the report time. Reported content is hidden on your phone immediately. Some non-safety content can be hidden automatically after enough separate reports. Safety reports wait for human review.</p>
+        <p>Leah Gerber is the community moderator. Email <a href="mailto:sct@milecheckapp.com?subject=Community%20content%20report">sct@milecheckapp.com</a> if a post needs review or an in-app report does not cover the problem.</p>
+      </section>
+
+      <section>
+        <h2>Local-service listings</h2>
+        <p>A paid local-service listing, if included, is bundled directory content and labelled Sponsored. The app does not send listing views, calls or link taps to the listed business and does not build an advertising profile.</p>
+      </section>
+
+      <section>
+        <h2>Retention and deletion</h2>
+        <p>The beta service does not yet apply a fixed automatic deletion period to synchronized author records, posts, hut plans, flags or family-link records. A post can stop appearing in the current feed because of its age without being erased from the server.</p>
+        <ul>
+          <li>Delete your own feed post in the feed. Its server copy and uploaded photos are removed after the deletion syncs, subject to the cache and already-synced-copy limits above.</li>
+          <li>Cancel a hut-night plan to remove it after the cancellation syncs.</li>
+          <li>Turn off family sharing to revoke the follow link after the change syncs.</li>
+          <li>Delete a recorded trip from the Trip Recording screen.</li>
+          <li>Clear the app's storage or remove the app to remove data in its app container. Secure-storage and device-backup behaviour is controlled by Apple or Google.</li>
+        </ul>
+        <p>For an access, correction or server-deletion request, email <a href="mailto:sct@milecheckapp.com?subject=Privacy%20request">sct@milecheckapp.com</a>. There is no account, so an email address alone may not identify your records. We may ask for details about the post, plan or family link you want located.</p>
+      </section>
+
+      <section>
+        <h2>Contact and changes</h2>
+        <p>Privacy questions: <a href="mailto:sct@milecheckapp.com?subject=Privacy%20question">sct@milecheckapp.com</a>.</p>
+        <p>This page will be updated before the app begins selling a trail pack or materially changes its data handling. The date at the top shows the latest revision.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>Sunshine Coast Trail Planner is independent and unofficial. It is not affiliated with or endorsed by the qathet Parks and Wilderness Society.</p>
+      <p><a href="/support/">Support</a> · <a href="/privacy/">Privacy</a> · <a href="https://sunshinecoasttrail.com/" target="_blank" rel="noopener">Official trail site</a></p>
+    </div>
+  </footer>
+  <script src="/assets/site.js?v=20260825b" defer></script>
+</body>
+</html>
