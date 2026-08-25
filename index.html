@@ -8,11 +8,13 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Sunshine Coast Trail Planner — Offline iPhone App</title>
   <meta name="description" content="An independent, unofficial iPhone app for the Sunshine Coast Trail near Powell River, BC: offline map, kilometre markers, huts, water, access and trip planning.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <link rel="canonical" href="https://sunshinecoasttrail.app/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta name="theme-color" content="#062f3b">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_CA">
   <meta property="og:site_name" content="Sunshine Coast Trail Planner">
   <meta property="og:title" content="Sunshine Coast Trail Planner — Offline iPhone App">
   <meta property="og:description" content="An independent, unofficial iPhone app for the Sunshine Coast Trail near Powell River, BC.">
@@ -27,9 +29,11 @@
   <meta name="twitter:image" content="https://sunshinecoasttrail.app/og.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="/banner.jpg" media="(min-width: 541px)" fetchpriority="high">
+  <link rel="preload" as="image" href="/banner-small.jpg" media="(max-width: 540px)" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css?v=20260825b">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Sunshine Coast Trail Planner","applicationCategory":"NavigationApplication","operatingSystem":"iOS","description":"An independent, unofficial offline app for the Sunshine Coast Trail near Powell River, British Columbia.","url":"https://sunshinecoasttrail.app/","offers":{"@type":"Offer","description":"Free download with a planned one-time Offline Trail Pack purchase"},"author":{"@type":"Person","name":"Leah Gerber"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://sunshinecoasttrail.app/#website","name":"Sunshine Coast Trail Planner","url":"https://sunshinecoasttrail.app/","description":"An independent, unofficial iPhone app and field guide for the Sunshine Coast Trail.","inLanguage":"en-CA"},{"@type":"MobileApplication","@id":"https://sunshinecoasttrail.app/#app","name":"Sunshine Coast Trail Planner","applicationCategory":"NavigationApplication","operatingSystem":"iOS","isAccessibleForFree":true,"description":"An independent, unofficial offline app for the Sunshine Coast Trail near Powell River, British Columbia.","url":"https://sunshinecoasttrail.app/","author":{"@type":"Person","name":"Leah Gerber"}}]}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -102,8 +106,8 @@
       <section class="section section--white">
         <div class="section__inner app-showcase">
           <div class="phone-stage reveal" aria-label="Screens from the iPhone test build">
-            <figure class="phone phone--one"><img src="/assets/app/map.webp" width="430" height="932" alt="Sunshine Coast Trail Planner map showing the trail and nearby waypoints" loading="lazy"></figure>
-            <figure class="phone phone--two"><img src="/assets/app/family.webp" width="430" height="932" alt="Family sharing screen with a manual trip update" loading="lazy"></figure>
+            <figure class="phone phone--one"><img src="/assets/app/map.webp" width="430" height="932" alt="Sunshine Coast Trail Planner map showing the trail and nearby waypoints" loading="lazy" decoding="async"></figure>
+            <figure class="phone phone--two"><img src="/assets/app/family.webp" width="430" height="932" alt="Family sharing screen with a manual trip update" loading="lazy" decoding="async"></figure>
           </div>
           <div class="reveal">
             <p class="eyebrow">SCT-specific</p>
@@ -151,7 +155,7 @@
 
       <section class="section section--white">
         <div class="section__inner founder reveal">
-          <figure class="founder__photo"><img src="/assets/photos/hut.webp" width="1050" height="1400" loading="lazy" alt="Confederation Lake Hut on the Sunshine Coast Trail"></figure>
+          <figure class="founder__photo"><img src="/assets/photos/hut.webp" width="1050" height="1400" loading="lazy" decoding="async" alt="Confederation Lake Hut on the Sunshine Coast Trail"></figure>
           <div><p class="eyebrow">The founder</p><h2>Built by Leah Gerber.</h2><p>I thru-hiked the SCT in July 2026 with my dog. Planning meant cross-checking qPAWS maps, guidebooks, routing apps, transport providers and hiker reports. I built an offline app with the map, water records, huts, transport and planning details I needed.</p></div>
         </div>
       </section>
