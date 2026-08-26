@@ -556,3 +556,86 @@ summary { cursor: pointer; padding: 16px 0; font-weight: 700; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ===========================================================
+   OPTION C — photo-led, conventional, restrained.
+   Appended override layer (Leah, 2026-08-25: "think GoDaddy Airo…
+   looks way less AI"). Delete this block to return to Option A.
+   =========================================================== */
+:root {
+  --display: Figtree, system-ui, sans-serif;
+  --body: Figtree, system-ui, sans-serif;
+  --paper: #ffffff;
+  --paper-2: #f5f6f4;
+  --ink: #1c2220;
+  --muted: #5a635e;
+  --faint: #8b938e;
+  --line: #e2e5e0;
+  --line-soft: #eceee9;
+  --marker: #1f6b45;          /* CTA green — buttons/accents read commercial, not alarm */
+  --marker-dark: #175436;
+  --shadow: 0 1px 2px rgba(20,30,25,.05), 0 8px 24px rgba(20,30,25,.07);
+  --radius: 12px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #121513; --paper-2: #191d1b; --ink: #eaefea; --muted: #a8b1ab; --faint: #79827c;
+    --line: #2a302c; --line-soft: #232825; --marker: #4fa877; --marker-dark: #3d8c60;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+  }
+}
+body { font: 400 17px/1.62 var(--body); }
+
+/* Sentence case at a human size — the uppercase slab was the aggressive part. */
+h1, h2, h3, .hero h1 {
+  text-transform: none;
+  letter-spacing: -.015em;
+  font-family: var(--body);
+}
+h1 { font-weight: 800; font-size: clamp(32px,4.6vw,50px); line-height: 1.14; max-width: 20ch; }
+h2 { font-weight: 700; font-size: clamp(25px,3vw,34px); line-height: 1.18; max-width: 24ch; }
+h3 { font-weight: 700; font-size: 18px; }
+.eyebrow, .section__index { font-weight: 700; font-size: 13px; letter-spacing: .07em; }
+
+/* The scroll-rail gimmick reads as a designed toy, not a product. */
+.km-rail { display: none !important; }
+
+/* Photography carries the hero. */
+.hero { min-height: min(78vh, 620px); background: #12211a; }
+.hero::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background-image: linear-gradient(180deg, rgba(10,20,15,.30) 0%, rgba(10,20,15,.48) 45%, rgba(10,20,15,.84) 100%), url("/assets/photos/summit.webp");
+  background-size: cover; background-position: center;
+}
+.hero h1 { color: #fff; margin-bottom: 20px; }
+
+/* Real buttons. */
+.button {
+  min-height: 46px; padding: 0 18px; border-width: 1px; border-radius: 8px;
+  font-weight: 600; font-size: 15px; letter-spacing: 0; text-transform: none;
+}
+.button--primary { background: var(--marker); border-color: var(--marker); color: #fff; }
+.button--primary:hover { background: var(--marker-dark); border-color: var(--marker-dark); }
+
+/* Conventional cards. */
+.card, .guide-card {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); box-shadow: var(--shadow);
+}
+.guide-card { overflow: hidden; transition: transform .25s ease, box-shadow .25s ease; }
+.guide-card:hover { transform: translateY(-3px); }
+.note { border-left: 0; border: 1px solid color-mix(in srgb, var(--marker) 22%, transparent);
+        border-radius: var(--radius); background: color-mix(in srgb, var(--marker) 8%, var(--paper)); }
+.fact-strip { border-top-width: 1px; }
+.evidence-card__source { color: var(--marker); }
+
+@media (prefers-reduced-motion: reduce) { .guide-card { transition: none; } }
+
+/* Hero title reads as ONE plain line (Leah picked this over the split slab). */
+.hero__prefix {
+  display: inline; font-size: inherit; font-weight: inherit; line-height: inherit;
+  color: inherit; letter-spacing: inherit; text-transform: none; margin: 0;
+}
+.hero h1 { max-width: 26ch; }
+.hero .eyebrow { color: rgba(255,255,255,.86); }
+.hero h1 { font-size: clamp(30px,3.5vw,42px); max-width: 24ch; }
