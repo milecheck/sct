@@ -445,6 +445,12 @@ summary { cursor: pointer; padding: 16px 0; font-weight: 700; }
 .founder__photo { position: relative; margin: 0; }
 .founder__photo::before { content: "JUL 2026"; position: absolute; z-index: 1; right: -13px; top: 23px; padding: 8px 10px; background: var(--marker); color: #fff; font: 800 13px/1 var(--display); letter-spacing: .08em; }
 .founder__photo img { display: block; width: 100%; max-height: 580px; object-fit: cover; box-shadow: var(--shadow); }
+.founder__name { max-width: none; margin: 0 0 16px; font: 800 clamp(25px,3.2vw,36px)/1 var(--display); letter-spacing: -.02em; text-transform: uppercase; }
+.founder__other { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line); }
+.founder__other .eyebrow { margin-bottom: 12px; }
+.founder__apps { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 0; padding: 0; list-style: none; }
+.founder__apps a { color: var(--ink); font-weight: 600; text-underline-offset: 3px; }
+.founder__apps a:hover { color: var(--marker); }
 
 .donation { display: grid; grid-template-columns: 1fr auto; gap: 35px; align-items: end; padding: clamp(35px,6vw,74px); background: var(--coast-deep); color: #fff; box-shadow: var(--shadow); }
 .donation h2 { margin-top: 12px; }
