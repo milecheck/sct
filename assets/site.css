@@ -659,3 +659,7 @@ h3 { font-weight: 700; font-size: 18px; }
 
 .profile-card{border:1px solid #dfe5da;border-radius:14px;padding:18px 14px 10px;background:#fff}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .profile-card{background:#161c15;border-color:#2a332c}}
+
+.founder__bio{color:var(--ink-2)}
+.founder__app{margin-top:6px;line-height:1.5}
+.founder__app-tag{color:var(--ink-2);font-size:.95em}
