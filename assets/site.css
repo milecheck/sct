@@ -643,6 +643,12 @@ h3 { font-weight: 700; font-size: 18px; }
 
 /* --- the trail, end to end: the app's elevation profile, drawing itself --- */
 .profile-wrap{overflow-x:auto}
+/* The profile's left half is honestly low, so the chart carries intrinsic
+   headroom — the section around it doesn't need to add more (Leah, 2026-08-27:
+   "the whole line - spacing"). Tighter head gap and card padding, profile only. */
+.section--profile{padding-top:clamp(56px,7vw,88px);padding-bottom:clamp(48px,6vw,80px)}
+.section--profile .section__head{margin-bottom:clamp(20px,3.5vw,36px)}
+.section--profile .profile-card{padding:10px 14px 6px}
 #sctProfile{width:100%;min-width:560px;height:auto;display:block}
 #sctProfile .parea{fill:rgba(47,125,52,.12)}
 #sctProfile .pline{fill:none;stroke:#2f7d34;stroke-width:2.5;stroke-linejoin:round}
