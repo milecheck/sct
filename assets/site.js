@@ -60,3 +60,25 @@
     updateChecklist(false);
   }
 })();
+
+
+// Elevation profile: the line draws itself when scrolled into view.
+(function(){
+  var line=document.getElementById("profLine");
+  var svg=document.getElementById("sctProfile");
+  if(!line||!svg)return;
+  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduce||!("IntersectionObserver"in window)){svg.classList.add("drawn");return;}
+  var len;
+  try{len=line.getTotalLength();}catch(e){svg.classList.add("drawn");return;}
+  line.style.strokeDasharray=len;line.style.strokeDashoffset=len;
+  var io=new IntersectionObserver(function(es){
+    if(es[0].isIntersecting){
+      line.style.transition="stroke-dashoffset 2.6s cubic-bezier(.2,.7,.2,1)";
+      line.style.strokeDashoffset="0";
+      setTimeout(function(){svg.classList.add("drawn");},2100);
+      io.disconnect();
+    }
+  },{threshold:.35});
+  io.observe(svg);
+})();

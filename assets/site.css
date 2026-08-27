@@ -639,3 +639,20 @@ h3 { font-weight: 700; font-size: 18px; }
 .hero h1 { max-width: 26ch; }
 .hero .eyebrow { color: rgba(255,255,255,.86); }
 .hero h1 { font-size: clamp(30px,3.5vw,42px); max-width: 24ch; }
+
+
+/* --- the trail, end to end: the app's elevation profile, drawing itself --- */
+.profile-wrap{overflow-x:auto}
+#sctProfile{width:100%;min-width:560px;height:auto;display:block}
+#sctProfile .parea{fill:rgba(47,125,52,.12)}
+#sctProfile .pline{fill:none;stroke:#2f7d34;stroke-width:2.5;stroke-linejoin:round}
+#sctProfile .ppin{fill:#fff;stroke:#2f7d34;stroke-width:2;opacity:0;transition:opacity .5s}
+#sctProfile .plab{font:600 13px/1 -apple-system,system-ui,sans-serif;fill:#4c564c;opacity:0;transition:opacity .5s}
+#sctProfile .pend{font:600 12px/1 -apple-system,system-ui,sans-serif;fill:#7a837a}
+#sctProfile.drawn .ppin,#sctProfile.drawn .plab{opacity:1}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) #sctProfile .parea{fill:rgba(107,191,115,.14)}
+  :root:not([data-theme="light"]) #sctProfile .pline{stroke:#6bbf73}
+  :root:not([data-theme="light"]) #sctProfile .ppin{fill:#161c15;stroke:#6bbf73}
+  :root:not([data-theme="light"]) #sctProfile .plab{fill:#a6b0a4}
+}
