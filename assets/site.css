@@ -200,7 +200,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
   width: 100%;
   max-width: var(--max);
   margin: auto;
-  padding: 19vh var(--gutter) 16vh;
+  padding: 11vh var(--gutter) 9vh;
 }
 .eyebrow {
   margin: 0 0 15px;
@@ -532,7 +532,7 @@ summary { cursor: pointer; padding: 16px 0; font-weight: 700; }
 
 @media (max-width: 540px) {
   .hero::before { background-image: linear-gradient(180deg,rgba(3,25,32,.25),rgba(3,25,32,.88)), url("/banner-small.jpg"); background-position: 58% center; }
-  .hero__body { padding-top: 22vh; padding-bottom: 12vh; }
+  .hero__body { padding-top: 13vh; padding-bottom: 9vh; }
   .hero__stats { grid-template-columns: repeat(2,1fr); }
   .hero__stat:nth-child(-n+2) { padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,.25); }
   .hero__foot span:last-child { display: none; }
@@ -601,7 +601,7 @@ h3 { font-weight: 700; font-size: 18px; }
 .km-rail { display: none !important; }
 
 /* Photography carries the hero. */
-.hero { min-height: min(78vh, 620px); background: #12211a; }
+.hero { min-height: min(56vh, 470px); background: #12211a; }
 .hero::after {
   content: ""; position: absolute; inset: 0; z-index: -1;
   background-image: linear-gradient(180deg, rgba(10,20,15,.30) 0%, rgba(10,20,15,.48) 45%, rgba(10,20,15,.84) 100%), url("/assets/photos/summit.webp");
