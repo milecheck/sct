@@ -656,3 +656,6 @@ h3 { font-weight: 700; font-size: 18px; }
   :root:not([data-theme="light"]) #sctProfile .ppin{fill:#161c15;stroke:#6bbf73}
   :root:not([data-theme="light"]) #sctProfile .plab{fill:#a6b0a4}
 }
+
+.profile-card{border:1px solid #dfe5da;border-radius:14px;padding:18px 14px 10px;background:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .profile-card{background:#161c15;border-color:#2a332c}}
