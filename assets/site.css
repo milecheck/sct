@@ -419,7 +419,10 @@ summary { cursor: pointer; padding: 16px 0; font-weight: 700; }
 .schedbody h4 { margin: 18px 0 8px; color: var(--ink); font: 800 17px var(--display); text-transform: uppercase; }
 .times { font-variant-numeric: tabular-nums; }
 .schednote { font-size: 13px; color: var(--faint); }
-.affiliate { padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+/* Pinned at body size and body ink on purpose. A disclosure has to be
+   conspicuous; it currently renders that way only because
+   `.legacy-page > main p` (below) out-specifies this rule by accident. */
+.affiliate { padding-top: 14px; border-top: 1px solid var(--line); color: var(--ink); font-size: 16px; }
 .packing-checklist { border-top: 3px solid var(--ink); }
 .packing-checklist fieldset { margin: 0; padding: 24px 0; border: 0; border-bottom: 1px solid var(--line); }
 .packing-checklist legend { margin-bottom: 12px; padding: 0; font: 800 21px/1 var(--display); text-transform: uppercase; }
