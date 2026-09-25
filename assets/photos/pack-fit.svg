@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 640" font-family="Figtree, Helvetica, Arial, sans-serif">
+  <title>Side view of a hiker wearing a pack, with the four straps numbered in the order to tighten them: hip belt, shoulder straps, load lifters, sternum strap</title>
+  <rect width="800" height="640" fill="#f5f8f7"/>
+  <!-- pack behind the body -->
+  <rect x="150" y="130" width="120" height="330" rx="26" fill="#0d5668" stroke="#102830" stroke-width="4"/>
+  <!-- body, facing right -->
+  <circle cx="330" cy="92" r="42" fill="#d2dcde" stroke="#102830" stroke-width="4"/>
+  <path d="M290 140 Q330 128 370 140 L380 420 Q330 436 280 420 Z" fill="#d2dcde" stroke="#102830" stroke-width="4"/>
+  <path d="M292 420 L300 600 M368 420 L378 600" stroke="#102830" stroke-width="16" stroke-linecap="round"/>
+  <!-- 3 load lifters: pack top to shoulder strap -->
+  <line x1="262" y1="138" x2="300" y2="170" stroke="#e84a31" stroke-width="7" stroke-linecap="round"/>
+  <!-- 2 shoulder strap -->
+  <path d="M296 150 Q350 150 360 210 Q362 300 300 330" fill="none" stroke="#174c3b" stroke-width="12" stroke-linecap="round"/>
+  <!-- 4 sternum strap -->
+  <line x1="352" y1="206" x2="378" y2="206" stroke="#e84a31" stroke-width="7" stroke-linecap="round"/>
+  <!-- 1 hip belt -->
+  <path d="M262 382 Q330 368 386 382 L386 414 Q330 400 262 414 Z" fill="#174c3b" stroke="#102830" stroke-width="3"/>
+  <!-- number badges -->
+  <g font-size="22" font-weight="800" text-anchor="middle" fill="#fff">
+    <circle cx="430" cy="398" r="20" fill="#102830"/><text x="430" y="406">1</text>
+    <circle cx="430" cy="276" r="20" fill="#102830"/><text x="430" y="284">2</text>
+    <circle cx="220" cy="98" r="20" fill="#102830"/><text x="220" y="106">3</text>
+    <circle cx="430" cy="206" r="20" fill="#102830"/><text x="430" y="214">4</text>
+  </g>
+  <g stroke="#102830" stroke-width="2">
+    <line x1="386" y1="398" x2="410" y2="398"/>
+    <line x1="358" y1="276" x2="410" y2="276"/>
+    <line x1="240" y1="106" x2="276" y2="148"/>
+    <line x1="380" y1="206" x2="410" y2="206"/>
+  </g>
+  <!-- labels -->
+  <g font-size="19" fill="#102830">
+    <text x="462" y="390" font-weight="800">HIP BELT</text>
+    <text x="462" y="414">On your hip bones, snug.</text>
+    <text x="462" y="438">Carries most of the weight.</text>
+    <text x="462" y="270" font-weight="800">SHOULDER STRAPS</text>
+    <text x="462" y="294">Snug, no gap at the top</text>
+    <text x="462" y="196" font-weight="800">STERNUM STRAP</text>
+    <text x="462" y="220">An inch below the collarbones</text>
+    <text x="40" y="40" font-weight="800">LOAD LIFTERS</text>
+    <text x="40" y="64">Pull gently, about 45°</text>
+  </g>
+  <text x="462" y="520" font-size="17" fill="#536970">Loosen everything first, then</text>
+  <text x="462" y="544" font-size="17" fill="#536970">tighten in this order, 1 to 4.</text>
+</svg>
