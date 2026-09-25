@@ -425,7 +425,11 @@ summary { cursor: pointer; padding: 16px 0; font-weight: 700; }
 .affiliate { padding-top: 14px; border-top: 1px solid var(--line); color: var(--ink); font-size: 16px; }
 .packing-checklist { border-top: 3px solid var(--ink); }
 .packing-checklist fieldset { margin: 0; padding: 24px 0; border: 0; border-bottom: 1px solid var(--line); }
-.packing-checklist legend { margin-bottom: 12px; padding: 0; font: 800 21px/1 var(--display); text-transform: uppercase; }
+.packing-checklist legend { float: left; width: 100%; margin: 0 0 6px; padding: 0; font: 800 21px/1 var(--display); text-transform: uppercase; }
+/* A legend sits on the fieldset's top edge, above its padding, so the title
+   hugged the rule above and floated away from its own items. Floating it puts
+   it inside the padding like any heading. */
+.packing-checklist legend + * { clear: both; }
 .packing-checklist label { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; margin: 10px 0; cursor: pointer; }
 .packing-checklist input { width: 18px; height: 18px; margin: 3px 0 0; accent-color: var(--forest); }
 .packing-checklist label:has(input:checked) { color: var(--muted); text-decoration: line-through; }
