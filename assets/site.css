@@ -708,3 +708,11 @@ h3 { font-weight: 700; font-size: 18px; }
 .founder__bio{color:var(--ink-2)}
 .founder__app{margin-top:6px;line-height:1.5}
 .founder__app-tag{color:var(--ink-2);font-size:.95em}
+
+/* Gear list cards (2026-09-25). Text only: Amazon images need its own tools. */
+.gear-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin: 12px 0 24px; }
+.gear-card { display: flex; flex-direction: column; gap: 6px; padding: 16px; border: 1px solid var(--line); background: var(--paper-2); color: var(--ink); text-decoration: none; }
+.gear-card:hover, .gear-card:focus-visible { border-color: var(--coast); }
+.gear-name { font-weight: 700; line-height: 1.3; }
+.gear-note { font-size: 14px; color: var(--muted); line-height: 1.4; }
+.gear-go { margin-top: auto; padding-top: 6px; font-size: 14px; font-weight: 700; color: var(--coast); }

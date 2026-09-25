@@ -1,5 +1,20 @@
 # Affiliate rules for this site
 
+## Changed 2026-09-25 — read this first
+
+Leah: "NAH DO ANY/ALL PRODUCTS." Links are no longer limited to gear she
+carried. The packing page has a Gear list section of 45 cards, built from the
+links she sent earlier (they had been stripped in the August pass). The
+disclosure no longer says "Each linked item is gear I carried," because that
+stopped being true. A card may only say "I carried" or "I wore" where the page
+already says so (the pack, the boots, gloves). Do not strip these links again.
+
+Still in force below: no links in the app, emails or handed-over files; no
+/go/ redirects or shorteners; no hotlinked Amazon images.
+
+---
+
+
 Written 2026-08-31 after an audit found the packing page naming a brand that
 does not exist. These are the rules that keep the page worth reading. Money
 is worth less than that, and by a wide margin — see the last section.
