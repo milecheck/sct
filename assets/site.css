@@ -566,9 +566,21 @@ summary { cursor: pointer; padding: 16px 0; font-weight: 700; }
 
 @media (max-width: 540px) {
   .hero::before { background-image: linear-gradient(180deg,rgba(3,25,32,.25),rgba(3,25,32,.88)), url("/banner-small.jpg"); background-position: 58% center; }
-  .hero__body { padding-top: 13vh; padding-bottom: 9vh; }
-  .hero__stats { grid-template-columns: repeat(2,1fr); }
-  .hero__stat:nth-child(-n+2) { padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,.25); }
+  /* The hero's own content — two-line heading, dek, stacked buttons, a
+     2x2 stats grid — runs taller than a phone screen once the base
+     11vh/9vh padding and 46px/30px margins are added on top of it: on a
+     375x812 viewport it measured 786px, 97% of the screen, leaving almost
+     nothing of the next section visible without scrolling (Leah, 2026-09-25:
+     "mobile site looks bad"). padding-top stays: it's what clears the
+     absolutely-positioned .site-nav, which itself wraps to two lines here
+     (see the .site-nav__brand note above) and measured 82px tall — cutting
+     it caused the eyebrow line to render underneath the nav text. The other
+     gaps are decorative, so those are what shrink (measured ~700px, 86%). */
+  .hero__body { padding-top: 13vh; padding-bottom: 5vh; }
+  .hero__dek { margin-top: 18px; }
+  .hero__actions { margin-top: 18px; }
+  .hero__stats { margin-top: 24px; }
+  .hero__stat:nth-child(-n+2) { padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,.25); }
   .hero__foot span:last-child { display: none; }
   .fact { min-height: 120px; }
   .question { gap: 9px; }
